@@ -1,0 +1,65 @@
+.container-fluid    
+  h1.text-center.title24.orange= __("Real food from farms near you, Delivered")
+  .row-fluid.text-center
+    .span12
+      != CDN("/images/shadow-line01.png")
+  .row-fluid.filter.text-center
+    .radio.inline.btn-all
+      span
+      input(type="radio", name="category", value="all", data-bind="checked: category", checked)
+      span
+    .radio.inline.btn-veggie
+      span
+      input(type="radio", name="category", value="Veggie", data-bind="checked: category")
+      span
+    .radio.inline.btn-fruit
+      span
+      input(type="radio", name="category", value="Fruit", data-bind="checked: category")
+      span
+    .radio.inline.btn-eggs
+      span
+      input(type="radio", name="category", value="Eggs", data-bind="checked: category")
+      span
+    .radio.inline.btn-poultry
+      span
+      input(type="radio", name="category", value="Poultry", data-bind="checked: category")
+      span
+    .radio.inline.btn-pork
+      span
+      input(type="radio", name="category", value="Pork", data-bind="checked: category")
+      span
+    .radio.inline.btn-beef
+      span
+      input(type="radio", name="category", value="Beef", data-bind="checked: category")
+      span
+    .radio.inline.btn-dairy
+      span
+      input(type="radio", name="category", value="Dairy", data-bind="checked: category")
+      span
+    .radio.inline.btn-cheese
+      span
+      input(type="radio", name="category", value="Cheese", data-bind="checked: category")
+      span
+    .radio.inline.btn-meal
+      span
+      input(type="radio", name="category", value="Meal", data-bind="checked: category")
+      span
+    .radio.inline.btn-sweet
+      span
+      input(type="radio", name="category", value="Sweet", data-bind="checked: category")
+      span
+  .container
+    ul.thumbnails.products(data-bind="foreach: skus")
+      li.span4
+        .thumbnail
+          img(data-bind="attr: {src: photo}")
+          .details
+            h3.title24.white(data-bind="text: name")
+            p.text12.white
+              span= __("By ")
+              span(data-bind="text: farm.name")
+            a.text12.lightgreen(data-bind="attr: { href : farm.url }")= __("Learn More")
+    h2.text-center.title20.green(data-bind="if: noProducts")= __("We are working to get this products near you!")
+  .row-fluid.text-center
+    .span12
+      != CDN("/images/shadow-line02.png")

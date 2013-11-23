@@ -1,0 +1,44 @@
+extends ../../views/layouts/main
+
+append css
+  != CDN("/stylesheets/app/about.css")
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/home/aboutInit.js")
+  
+block content
+  .container.well
+    .row-fluid.text-center
+      h1.title26.blue= __("Introducing ")
+        != CDN("/images/farmsharesbluelogo.png",{ 'class' : 'text-logo'})
+      h2.title18= __("Subscribe to foods from farmers near you, enjoy regular delivery in Santiago Oriente and next-day shipping on both coasts of the US")
+      != CDN("/images/separationline-allwide.png")
+    .row-fluid.text-center
+      h1.title26.blue
+        != CDN("/images/farmsharesbluelogo.png",{ 'class' : 'text-logo'})
+        != __("benefits")
+    .row-fluid
+      .span4
+        h1.title24.orange= __("Free Weekly Delivery")
+        p.title14= __("Free delivery for the first month and for monthly orders above $50 USD. Place your order by Thursday at 8pm to get your food that Saturday or Sunday.")
+      .span8
+        != CDN("/images/aboutFS01.png")
+    .row-fluid
+      .span4
+        != CDN("/images/aboutFS02.png", {'class':'pull-right'})
+      .span8
+        h1.title24.orange= __("A growing selection straight from the Farm")
+        p.title14= __("Our network for farmers is growing every week, we delivery a variety of products from grass-fed dairy, meats and eggs, to chemical-free produce, to elaborated foods like Hummus and Peanut Butter. You'll never have to go to the grocery store again.")
+    .row-fluid
+      .span4
+        h1.title24.orange= __("Save time and gas")
+        p.title14= __("We try to offer the best customer service you could want; if waiting at home for delivery isn't convenient you can get your order picked up from one of our partner stores in your area.")
+      .span8
+        != CDN("/images/aboutFS03.png")
+    .row-fluid
+      .span4
+        != CDN("/images/aboutFS04.png", {'class':'pull-right'})
+      .span8
+        h1.title24.orange= __("Help sustainable farms grow and thrive")
+        p.title14= __("When you subscribe to your Farm Share, you're giving that farmer a steady stream of income that helps them invest in producing more food, better, and more cost-effectively. That's why we offer discounts for pre-paying shares, buying in volume and ordering with friends - we're creating a platform where farms can become what they need to be in order to feed the world sustainably.")   
+      

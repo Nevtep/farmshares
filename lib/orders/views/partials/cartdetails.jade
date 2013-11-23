@@ -1,0 +1,18 @@
+.order-detail(data-bind="with: cart")
+  .row-fluid(data-bind="foreach: { data: farms, afterRender: $parent.bindSubscriptions }")
+    hr.double
+    h1.title26.blue.uppercase(data-bind="text: name")
+    .row-fluid
+      .headerRow
+        .item-description-header.text10= __("Item Description")
+        .item-price-header.text10= __("Price")
+        .item-quantity-header.text10= __("Quantity")
+        .item-subscription-header.text10= __("Subscription")
+        .item-total-header.text10= __("Total")
+        .item-remove-header
+    .row-fluid#items(data-bind="html: content.html()")
+    .row-fluid
+      h6.farm-total.pull-right.title16.black(data-bind="html: total")
+      h6.pull-right.title16.black.uppercase
+        span(data-bind="text: name")
+        span= __(" Total: ")

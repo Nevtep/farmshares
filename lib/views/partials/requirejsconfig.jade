@@ -1,0 +1,158 @@
+//- requirejs
+- var text = CDN("/javascripts/lib/require/text.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var async = CDN("/javascripts/lib/require/async.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var font = CDN("/javascripts/lib/require/font.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var goog = CDN("/javascripts/lib/require/goog.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var image = CDN("/javascripts/lib/require/image.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var json = CDN("/javascripts/lib/require/json.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var noext = CDN("/javascripts/lib/require/noext.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var mdown = CDN("/javascripts/lib/require/mdown.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var propertyParser = CDN("/javascripts/lib/require/propertyParser.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var markdownConverter = CDN("/javascripts/lib/require/Markdown.Converter.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+//- knockout
+- var kojs = CDN("/javascripts/lib/knockout/knockout-2.3.0.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var knockout_mapping = CDN("/javascripts/lib/knockout/knockout.mapping.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var knockout_validation = CDN("/javascripts/lib/knockout/knockout.validation.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var knockout_unapplyBindings = CDN("/javascripts/lib/knockout/knockout.unapplyBindings.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var knockout_jqueryui = CDN("/javascripts/lib/knockout/knockout.jqueryui.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var knockout_fileupload = CDN("/javascripts/lib/knockout/knockout.fileupload.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var knockout_lazy = CDN("/javascripts/lib/knockout/knockout.lazy.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var knockout_preview = CDN("/javascripts/lib/knockout/knockout.preview.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+//- jquery
+- var jquery_ui = CDN("/javascripts/lib/jquery/jquery-ui-1.10.2.custom.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var jquery_ui_widget = CDN("/javascripts/lib/jquery/jquery.ui.widget.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var jquery_fileupload = CDN("/javascripts/lib/jquery/jquery.fileupload.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var jquery_fileupload_fp = CDN("/javascripts/lib/jquery/jquery.fileupload-fp.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var xml2json = CDN("/javascripts/lib/jquery/jquery.xml2json.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var ellipsis = CDN("/javascripts/lib/jquery/jquery.ellipsis.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var jquery_iframe_transport = CDN("/javascripts/lib/jquery/jquery.iframe-transport.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var bootstrap = CDN("/javascripts/lib/jquery/bootstrap.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+//- libs
+- var simpleCart = CDN("/javascripts/lib/simplecart/simpleCart.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var itemgroups = CDN("/javascripts/lib/simplecart/simpleCart.itemgroups.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var googleAnalytics = CDN("/javascripts/lib/analytics/google-analytics.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var crazyEgg = CDN("/javascripts/lib/analytics/crazy-egg.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+//- Page View Models
+- var mainPageVM = CDN("/javascripts/viewmodels/pages/mainVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var farmPageVM = CDN("/javascripts/viewmodels/pages/farmVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var homePageVM = CDN("/javascripts/viewmodels/pages/homeVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var checkoutPageVM = CDN("/javascripts/viewmodels/pages/checkoutVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var cartPageVM = CDN("/javascripts/viewmodels/pages/cartVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var dashboardPageVM = CDN("/javascripts/viewmodels/pages/dashboardVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var customerInfoPageVM = CDN("/javascripts/viewmodels/pages/customer/infoVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+//- Form View Models
+- var farmFormVM = CDN("/javascripts/viewmodels/forms/farmVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var shareFormVM = CDN("/javascripts/viewmodels/forms/shareVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var subscriptionFormVM = CDN("/javascripts/viewmodels/forms/subscriptionVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var skuFormVM = CDN("/javascripts/viewmodels/forms/skuVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+//- Data View Models
+- var farmDataVM = CDN("/javascripts/viewmodels/data/farmVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var shareDataVM = CDN("/javascripts/viewmodels/data/shareVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var subscriptionDataVM = CDN("/javascripts/viewmodels/data/subscriptionVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var skuDataVM = CDN("/javascripts/viewmodels/data/skuVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var accountDataVM = CDN("/javascripts/viewmodels/data/accountVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var locationDataVM = CDN("/javascripts/viewmodels/data/locationVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var statusDataVM = CDN("/javascripts/viewmodels/data/statusVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var cartDataVM = CDN("/javascripts/viewmodels/data/cartVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+//- Core View Models
+- var authenticationVM = CDN("/javascripts/viewmodels/core/authenticationVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var baseVM = CDN("/javascripts/viewmodels/core/baseVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var mappedVM = CDN("/javascripts/viewmodels/core/mappedBaseVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var modelVM = CDN("/javascripts/viewmodels/core/dataModelBaseVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var crudBaseVM = CDN("/javascripts/viewmodels/core/crudBaseVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var geolocationVM = CDN("/javascripts/viewmodels/core/geolocationVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+//- Dispatch
+- var wholesalesDispatchVM = CDN("/javascripts/viewmodels/dispatch/wholesalesVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var deliveryPlanDispatchVM = CDN("/javascripts/viewmodels/dispatch/deliveryPlanVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var deliveryScheduleDispatchVM = CDN("/javascripts/viewmodels/dispatch/deliveryScheduleVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var shareholdingsDispatchVM = CDN("/javascripts/viewmodels/dispatch/shareholdingsVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+script
+  var require = {
+    waitSeconds : 15,
+    paths : {
+      // requirejs
+      "text" : "#{text}",
+      "async":"#{async}",
+      "font" : "#{font}",
+      "goog" : "#{goog}",
+      "image" : "#{image}",
+      "json" : "#{json}",
+      "noext" : "#{noext}",
+      "mdown" : "#{mdown}",
+      "propertyParser" : "#{propertyParser}",
+      "markdownConverter" : "#{markdownConverter}",
+      // knockout
+      "knockout" : "#{kojs}",
+      "knockout.mapping" : "#{knockout_mapping}",
+      "knockout.validation" : "#{knockout_validation}",
+      "knockout.unapplyBindings" : "#{knockout_unapplyBindings}",
+      "knockout.jqueryui" : "#{knockout_jqueryui}",
+      "knockout.fileupload" : "#{knockout_fileupload}",
+      "knockout.lazy" : "#{knockout_lazy}",
+      "knockout.preview" : "#{knockout_preview}",      
+      // jquery
+      "jquery-ui" : "#{jquery_ui}",
+      "jquery.ui.widget" : "#{jquery_ui_widget}",
+      "jquery.fileupload" : "#{jquery_fileupload}",
+      "jquery.fileupload-fp" : "#{jquery_fileupload_fp}",
+      "jquery.iframe-transport" : "#{jquery_iframe_transport}",
+      "bootstrap" : "#{bootstrap}",
+      "jquery.xml2json" : "#{xml2json}",
+      "jquery.ellipsis" : "#{ellipsis}",
+      // libs
+      "stripe" : "https://js.stripe.com/v2/stripe",
+      "simpleCart" : "#{simpleCart}",
+      "simpleCart.itemgroups" : "#{itemgroups}",
+      "googleAnalytics" : "#{googleAnalytics}",
+      "crazyEgg" : "#{crazyEgg}",
+      // Page View Models
+      "mainPageVM" : "#{mainPageVM}",
+      "farmPageVM" : "#{farmPageVM}",
+      "homePageVM" : "#{homePageVM}",
+      "checkoutPageVM" : "#{checkoutPageVM}",
+      "cartPageVM" : "#{cartPageVM}",      
+      "dashboardPageVM" : "#{dashboardPageVM}",      
+      "customerInfoPageVM" : "#{customerInfoPageVM}",          
+      // Form View Models
+      "farmFormVM" : "#{farmFormVM}",
+      "shareFormVM" : "#{shareFormVM}",
+      "subscriptionFormVM" : "#{subscriptionFormVM}",
+      "skuFormVM" : "#{skuFormVM}",
+      // Data View Models
+      "farmDataVM" : "#{farmDataVM}",
+      "shareDataVM" : "#{shareDataVM}",
+      "subscriptionDataVM" : "#{subscriptionDataVM}",
+      "skuDataVM" : "#{skuDataVM}",
+      "accountDataVM" : "#{accountDataVM}",
+      "locationDataVM" : "#{locationDataVM}",
+      "statusDataVM" : "#{statusDataVM}",
+      "cartDataVM" : "#{cartDataVM}",
+      // Core View Models
+      "authenticationVM" : "#{authenticationVM}",
+      "baseVM" : "#{baseVM}",
+      "mappedVM" : "#{mappedVM}",
+      "modelVM" : "#{modelVM}",
+      "crudBaseVM" : "#{crudBaseVM}",
+      "geolocationVM" : "#{geolocationVM}",
+      // Dispatch
+      "wholesalesDispatchVM" : "#{wholesalesDispatchVM}",
+      "deliveryPlanDispatchVM" : "#{deliveryPlanDispatchVM}",
+      "deliveryScheduleDispatchVM" : "#{deliveryScheduleDispatchVM}",
+      "shareholdingsDispatchVM" : "#{shareholdingsDispatchVM}"
+    },
+    shim: {
+      "knockout": ["jquery"],
+      "bootstrap": ["jquery"],
+      "jquery.xml2json": ["jquery"],
+      "jquery.ellipsis": ["jquery"],
+      "jquery-ui": ["jquery"],
+      "jquery.ui.widget": ["jquery"],
+      "stripe": {
+        exports: "Stripe"
+      },
+      "simpleCart": {
+        deps: ["jquery"],
+        exports: "simpleCart"
+      }
+    }
+  };

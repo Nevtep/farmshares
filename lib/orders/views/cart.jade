@@ -1,0 +1,36 @@
+extends ../../views/layouts/main
+
+block title
+  title= __("Farm Shares: Meet, Learn, Eat!")
+
+append css
+  != CDN("/stylesheets/app/orders/cart.css")
+  
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/orders/cartInit.js")
+
+block content
+  .container
+    .row-fluid
+      .span8
+        h2.title= __("Shopping Cart")
+      .span4
+        a.btn.btn-success.pull-right(href="/checkout", style="margin-top:15px")= __("Proceed to checkout")
+        span.divider.pull-right
+        a.btn.btn-muted.pull-right(href="/farms", style="margin-top:15px")= __("Keep Shopping")
+    .row-fluid
+      include partials/cartdetails
+    hr.simple
+    .row-fluid
+      .span8
+        .span3#logo
+          != CDN("/images/guarantee.png")
+        .span6#text
+          h4= __("IF YOU CAN'T EAT YOUR SHARE, YOU CAN EAT OUR SHARE")
+          h5= __("Farming is risky, nature happens &mdash; if you don't receive your first order we'll refund you.")
+      .span4
+        .row
+          h3.title16.blue.uppercase.bold.text-right= __("Order Total: ")
+            span.simpleCart_grandTotal.title18.blue
+        .row
+          a.btn.btn-success.pull-right(href="/checkout")= __("Proceed to checkout")

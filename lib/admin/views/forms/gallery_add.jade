@@ -1,0 +1,14 @@
+.fileupload-buttonbar.row-fluid
+  .span12
+    span.btn.btn-success.fileinput-button      
+      i.icon-plus.icon-white
+      span= __("Add photos...")
+      input(type="file", name="gallery[]", multiple, autoUpload=false, data-url="/upload/farm/gallery/photo", data-bind="fileUploader: { datatype: 'json', add: farmForm.addImageToFarm }")
+.row-fluid(data-bind="with: farmForm.farmData")
+  .span12(data-bind="when: ready")
+    ul.thumbnails(data-bind="preview: uploads")
+      li
+        a.thumbnail(href="#", data-bind="click: function(data,evt) { $parent.uploads.remove($data)}")
+          canvas.ImageM#preview
+          
+    

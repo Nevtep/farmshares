@@ -1,0 +1,23 @@
+.modal-header
+  button.close(type="button", data-bind="click: hideModal", aria-hidden="true")×
+  h3#subscription-form-header= __("Subscription Info")
+.modal-body
+  fieldset(data-bind="with: subscriptionData")
+    // ko when: ready
+    .control-group
+      label(for="name")= __("Display Name")
+      input(type="text", name="name", data-bind="value: $data.name")
+    
+    .control-group
+      label(for="deliveries")= __("Amount of deliveries")
+      input(type="text", name="deliveries", data-bind="value: $data.deliveries")
+    
+    .control-group
+      label(for="discount")= __("Discount")
+      .input-prepend
+        span.add-on %
+        input.input-mini(type="number", name="discount", data-bind="value: $data.discount")
+    // /ko
+.modal-footer
+  button.btn(data-bind="click: hideModal", aria-hidden="true")= __("Close")
+  button.btn.btn-primary(data-bind="click: function(data, evt){addSubscription($parent.shareData)}")= __("Save")

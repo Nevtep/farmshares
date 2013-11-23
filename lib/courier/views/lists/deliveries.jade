@@ -1,0 +1,17 @@
+﻿.span12(data-bind="foreach: deliveries") 
+  .row-fluid
+    table.table.table-striped 
+      caption(data-bind="text: customer.location.str")  
+      thead
+        tr      
+          th(colspan="2")= __("Share description")
+          th= __("Quantity")          
+          th= __("Deliver From")
+          th= __("Deliver Upto")
+      tbody(data-bind="foreach: shares")
+        tr
+          td(data-bind="text: share.photo")
+          td(data-bind="text: share.name")
+          td(data-bind="text: quantity")
+          td(data-bind="text: delivery.timeframe.start")
+          td(data-bind="text: delivery.timeframe.end")

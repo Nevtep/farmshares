@@ -1,0 +1,55 @@
+.modal-header
+  button.close(type="button", data-bind="click: hideModal", aria-hidden="true")×
+  h3#sku-form-header= __("Store Keeping Unit Info")
+.modal-body
+  form
+    fieldset(data-bind="with: skuData")
+      // ko when: ready
+      .alert.alert-error(data-bind="visible: !isValid")
+        ul(data-bind="foreach: errors")
+          li(data-bind="text: $data")
+          
+      .row-fluid
+        .span6
+          label(for="type")= __("Product Type")
+          select(name="type", data-bind="value: type")
+            option(value="Eggs", selected="true")= __("Eggs")
+            option(value="Sweet")= __("Sweet")
+            option(value="Poultry")= __("Poultry")
+            option(value="Pork")= __("Pork")
+            option(value="Beef")= __("Beef")
+            option(value="Cheese")= __("Cheese")
+            option(value="Fruit")= __("Fruit")
+            option(value="Veggie")= __("Veggie")
+            option(value="Meal")= __("Meal")
+            option(value="Dairy")= __("Dairy")
+          label(for="unit")= __("Unit")
+          select(name="unit", data-bind="value: unit")
+            option(value="Unit", selected="true")= __("Unit")
+            option(value="Pound")= __("Pound")
+            option(value="Kilogram")= __("Kilogram")
+            option(value="Gallon")= __("Gallon")
+            option(value="Liter")= __("Liter")
+          label(for="batch_size")= __("Batch Size")
+          input(type="number", name="batch_size", data-bind="value: batch_size", required)
+        .span6
+          label(for="name")= __("Display Name")
+          input(type="text", name="name", data-bind="value: name", required)
+          label(for="title")= __("Title")
+          input(type="text", name="title", data-bind="value: title", required)
+          label(for="description")= __("Description")
+          textarea(rows="3", name="description", data-bind="value: description", required)
+        
+      // /ko
+  section.row-fluid#shares
+    h3= __("Shares")
+    a.btn.btn-primary#add-share(href="#share-form", role="button", data-toggle="modal", data-bind="click: createShare" )= __("Create Share")
+    #share-form.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="share-form-header", aria-hidden="true",data-bind="with: shareForm")
+      include share
+    #share-list(data-bind="with: skuData")
+      // ko when: ready
+      include ../lists/shares
+      // /ko
+.modal-footer
+  button.btn(data-bind="click: hideModal", aria-hidden="true")= __("Close")
+  button.btn.btn-primary(data-bind="click: function(data, evt){addSKU($parent.farmForm.farmData)}")= __("Save")

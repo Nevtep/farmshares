@@ -1,0 +1,18 @@
+extends ../../views/layouts/main
+
+block title
+  title= __("Farm Shares: Meet, Learn, Eat!")
+
+append css
+  != CDN("/stylesheets/app/orders/thankyou.css")
+  
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/orders/thankyouInit.js")
+
+block content
+  .container
+    h2.title26.blue= __("Thanks for being part of this.")
+    h3.title18
+      != __("We have just sent you an email to ") 
+      span.orange= user.email
+      != __(" to confirm your subscription and purchase.")

@@ -1,0 +1,54 @@
+.modal-header
+  button.close(type="button", data-bind="click: hideModal", aria-hidden="true")×
+  h3#share-form-header= __("Share Info")
+.modal-body
+  form
+    fieldset(data-bind="with: shareData")
+      // ko when: ready
+      .row-fluid
+        .span6
+          label(for="name")= __("Display Name")
+          input(type="text", name="name", data-bind="value: name")
+          label(for="price")= __("Share Cost")
+          .input-prepend
+            select.add-on(name="currency", data-bind="value: currency")
+              option(value="USD") USD
+              option(value="CAD") CAD
+              option(value="CLP") CLP
+              option(value="GBP") GBP
+              option(value="EUR") EUR
+            input.input-small(type="number", name="price", data-bind="value: netPrice")
+        .span6        
+          label(for="amount")= __("Amount")
+          .input-append
+            input(type="number", name="amount", data-bind="value: amount")
+            // ko with: $parentContext.$parent.skuData
+            // ko when: ready
+            span.add-on(data-bind="text: unit")
+            // /ko
+            // /ko
+          
+      .row-fluid
+        span.btn.btn-success.fileinput-button
+          i.icon-plus.icon-white
+          span= __("Add photo")
+          input(type="file", name="photo", autoUpload=false, data-url="/upload/farm/share/photo", data-bind="fileUploader: { datatype: 'json', add: $parent.addImageToEditingShare }")
+      .row-fluid
+        ul.thumbnails(data-bind="preview: uploads")
+          li
+            a.thumbnail(href="#", data-bind="click: function(data,evt) { $parent.logoUpload.remove($data)}")
+              canvas.ImageM#preview
+      
+      // /ko
+  section.row-fluid#subscriptions
+    h3= __("Subscriptions")
+    a.btn.btn-primary#add-subscription(href="#subscription-form", role="button", data-toggle="modal", data-bind="click: createSubscription")= __("Create Subscription")
+    #subscription-form.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="subscription-form-header", aria-hidden="true", data-bind="with: subscriptionForm")
+      include subscription
+    #subscription-list(data-bind="with: shareData")
+      // ko when: ready
+      include ../lists/subscriptions
+      // /ko
+.modal-footer
+  button.btn(data-bind="click: hideModal", aria-hidden="true")= __("Close")
+  button.btn.btn-primary(data-bind="click: function(data, evt){addShare($parent.skuData)}")= __("Save")

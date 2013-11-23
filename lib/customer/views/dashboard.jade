@@ -1,0 +1,6 @@
+extends layouts/customer
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/customer/dashboardInit.js")
+block section
+  #dashboard

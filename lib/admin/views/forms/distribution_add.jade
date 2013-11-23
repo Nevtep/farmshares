@@ -1,0 +1,99 @@
+section.row-fluid#delivery
+  .span3
+    legend= __("Delivery")
+
+    .control-group
+      label(for="type")= __("Type")
+      select#type(name="type")
+        option(value="shipping")= __("Shipping")
+        //- option(value="courier") Courier
+        //- option(value="dropoff") Dropoff
+
+    section#shipping
+      .control-group#errors
+      .control-group
+        label(for="shipping-name")= __("Name")
+        input.input-large(type="text", name="shipping-name")
+      .control-group
+        label(for="shipping-cost")= __("Cost")
+        input.input-large(type="number", name="shipping-cost")
+
+    section#dropoff.hide
+      .control-group#errors
+      .control-group
+        label(for="dropoff-owner-name")= __("Owner Name")
+          input(type="text", name="dropoff-owner-name")
+        label(for="dropoff-owner-email")= __("Owner Email")
+          input(type="email", name="dropoff-owner-email")
+      .control-group
+        label(for="dropoff-fee")= __("Fee")
+          input(type="number", name="dropoff-fee")
+      .control-group
+        label(for="dropoff-window-begin")= __("Window Begin")
+          input(type="date", name="dropoff-window-begin")
+        label(for="dropoff-window-end")= __("Window End")
+          input(type="date", name="dropoff-window-end")
+      .control-group
+        label(for="dropoff-location")= __("Location")
+          input(type="text", name="dropoff-location")
+
+    section#courier.hide
+      .control-group#errors
+      .control-group
+        label(for="courier-email")= __("Courier Email")
+        input(type="email", name="courier-email")
+      .control-group
+        label(for='courier-registration')= __("Registration")
+        #courier-registration
+      .control-group
+        label(for='courier-license')= __("License")
+        #courier-license
+      .control-group
+        label(for="courier-availability")= __("Availability")
+          br
+          span#errors
+          input(type="date", name="courier-availability-day")
+          input(type="text", name="courier-availability-area", placeholder="Area")
+        button.btn.btn-small#new-availability= __("Add")
+      .control-group
+        table.table.table-striped#availabilities
+          span.label#no-availability= _("No availabilities yet.")
+          thead
+              tr
+                th= __("Day")
+                th= __("Area")
+            tbody
+
+    button.btn.btn-primary.offset2#add-delivery= __("Create Delivery")
+   
+  .span8.offset1
+    legend= __("Shipping")
+    table.table.table-striped#shipping
+      span.label#no-shipping= __("No shipping methods have been created yet for this farm.")
+      thead
+          tr
+            th= __("Name")
+            th= __("Cost")
+        tbody
+
+    legend= __("Dropoff")
+    table.table.table-striped#dropoff
+      span.label#no-dropoff= __("No dropoff places have been created yet for this farm.")
+      thead
+          tr
+            th= __("Owner")
+            th= __("Email")
+            th= __("Fee")
+            th= __("Window (From/To)")
+            th= __("Location")
+        tbody
+
+    legend= __("Courier")
+    table.table.table-striped#courier
+      span.label#no-courier= __("No courier have been assigned yet for this farm.")
+      thead
+          tr
+            th= __("Email")
+            //- th Registration
+            th= __("Availability")
+        tbody

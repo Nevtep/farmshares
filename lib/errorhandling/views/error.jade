@@ -1,0 +1,8 @@
+extends ../../views/layouts/main
+
+block content
+	row-fluid.span12.center
+		span8.offset2#error
+			h1= __('Houston, we have a problem :(')
+			h3= __('Please, try again in a few moments')
+			//p= error.message

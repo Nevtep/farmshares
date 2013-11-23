@@ -1,0 +1,11 @@
+.navbar
+  .navbar-inner
+    if user
+      a.brand(href="/logout")
+        span.label= __("Logout")
+      ul.nav
+        li.active
+          a(href="/farm/")= __("Home")
+    else
+      a.brand(href="/login")
+        span.label= __("Login")

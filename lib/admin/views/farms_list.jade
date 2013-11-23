@@ -1,0 +1,27 @@
+extends layouts/admin
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/admin/farmsListInit.js")
+  
+block inner
+  h2= __("Farm List")
+  table.table.table-striped
+    thead
+      tr
+        th= __("Farm Name")
+        th= __("See live")
+        th= __("Edit")
+        th= __("Wholesale Dispatch")
+    tbody
+      for farm in farms
+        tr
+          td #{farm.name}
+          td
+            a(href="/farms/view/#{farm.slug}")
+              i.icon-eye-open
+          td
+            a(href="/admin/farms/edit/#{farm.slug}")
+              i.icon-edit
+          td
+            a(href="/admin/farms/wholesales/#{farm._id}")
+              i.icon-book

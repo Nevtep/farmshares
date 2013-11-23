@@ -1,0 +1,20 @@
+table.table.table-striped
+  thead
+    tr
+      th= __("Name")
+      th= __("Deliveries")
+      th= __("Discount")
+      th= __("Actions")
+  tbody(data-bind="foreach: subscriptions")
+    tr 
+      td(data-bind="text: name")
+      td(data-bind="text: deliveries")
+      td(data-bind="text: discount")       
+      td(style="width:100px")
+        ul#icons
+          li(title="Edit")
+            a(href="#subscription-form", role="button", data-toggle="modal", data-bind="click: function(data,event) { $root.skuForm.shareForm.subscriptionForm.editSubscription(data); }")
+              i.icon-pencil
+          li(title="Delete")
+            a(data-bind="click: function(data,event) { $parent.subscriptions.destroy(data) }")
+              i.icon-remove

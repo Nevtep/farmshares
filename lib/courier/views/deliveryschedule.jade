@@ -1,0 +1,9 @@
+extends layouts/farmer
+
+block content
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/courier/deliveryscheduleInit.js")
+  .row-fluid
+    h3= __("Deliveries")
+  .row-fluid(data-bind="with: dispatch")
+    include lists/deliveries
+  

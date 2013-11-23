@@ -1,0 +1,18 @@
+form(action="/login",method="POST")
+  fieldset
+    label.muted= __("USER")
+    input.input-block-level(type="text", name="email",id="email")
+    label.muted= __("PASSWORD")
+    input.input-block-level(type="password", name="password",id="password")
+    button.btn.btn-large.btn-success(type="submit")
+      span= __("Secure Login")
+      i.icon-lock.icon-white
+    a.help-block.hide(href="/recover")= __("Forgot your password?")
+    h2.title24.light= __("OR")
+    h5.muted= __("Login with:")
+    a(href="/auth/facebook")
+      != CDN("/images/facebook44.png")
+    //- a(href="/auth/twitter")
+    //-   != CDN("/images/twitter44.png")
+    a(href="/auth/google")
+      != CDN("/images/google44.png")

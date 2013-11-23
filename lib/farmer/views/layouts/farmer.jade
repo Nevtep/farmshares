@@ -1,0 +1,17 @@
+extends ../../../views/layouts/base
+
+block title
+  title FS Farmer Dashboard
+    
+block js
+  include ../../../views/partials/requirejsconfig
+
+block css
+  != CDN('/stylesheets/app/admin.css')
+  != CDN('/stylesheets/vendor/jquery.fileupload-ui.css')
+
+block nav
+  include ../partials/navbar
+
+block footer
+  include ../partials/footer

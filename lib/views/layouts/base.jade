@@ -1,0 +1,33 @@
+!!! 5
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    block title
+      title Base Template    
+    
+    block css
+      != CDN("/stylesheets/libs/bootstrap.css")
+      != CDN("/stylesheets/libs/bootstrap-responsive.css")
+      != CDN("/stylesheets/app/site.css")
+      != CDN("/stylesheets/app/footer.css")
+      != CDN("/stylesheets/app/fonts.css")
+    block js
+      include ../partials/requirejsconfig
+  body
+    #wrap
+      .data
+        block data
+          if everyauth.loggedIn
+            input(name="userid", id="userid", type="hidden", value="#{user.id}")
+          else
+            input(name="userid", id="userid", type="hidden", value="")
+      .header
+        block header
+      .content
+        block content
+      #push
+    #footer
+      .footer      
+        block footer
+        
+    

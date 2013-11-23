@@ -1,0 +1,23 @@
+extends footer
+block info
+  .container-fluid
+    .span8
+      ul.breadcrumb.menufooter
+        li
+          a(href="/")= __("Home")
+          span.divider |
+        li
+          a(href="/about")= __("About FarmShares")
+          span.divider |
+        li
+          a(href="/")= __("Products")
+          span.divider |
+        li
+          a(href="/joinus")= __("Sell with us")
+          span.divider |
+        li
+          a(href="mailto:support@farmshares.com")= __("Contact")
+    .span4.design.menufooter.text-right
+      span= __("Design by ");
+      a.menufooterblue(href="http://www.jsapoznik.com.ar") jSapoznik.com
+        

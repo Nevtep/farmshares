@@ -1,0 +1,14 @@
+extends base
+
+block title
+  title= __("Farm Shares: Meet, Learn, Eat!")
+    
+append css  
+  != CDN("/stylesheets/app/navbar.css")  
+
+block header
+  include ../partials/navbar
+
+append footer
+  include ../partials/breadcrumbs
+  

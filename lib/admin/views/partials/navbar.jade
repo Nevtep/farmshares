@@ -1,0 +1,33 @@
+.navbar
+  .navbar-inner
+    if user
+      a.brand(href="/logout")
+        span.label= __("Logout")
+      ul.nav
+        li.active
+          a(href="/admin/")= __("Home")
+        li.dropdown
+          a.dropdown-toggle(href="#", data-toggle="dropdown")
+            | #{__("Farms")}
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href="/admin/farms/add")
+                i.icon-plus
+                | #{__("Add Farm")}
+            li
+              a(href="/admin/farms/list")
+                i.icon-list
+                | #{__("List Farms")}
+        li.dropdown
+          a.dropdown-toggle(href="#", data-toggle="dropdown")
+            | #{__("Users")}
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href="/admin/users/list")
+                i.icon-list
+                | #{__("List Users")}
+    else
+      a.brand(href="/login")
+        span.label= __("Login")

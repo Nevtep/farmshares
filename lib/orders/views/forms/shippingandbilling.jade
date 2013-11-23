@@ -1,0 +1,16 @@
+h2= __("Billing Address")
+.container-fluid
+  // ko with: billing_address
+  include address
+    .control-group
+      .controls
+        label.checkbox
+          input(type="checkbox", data-bind="checked: $parentContext.$parent.copyAddress")
+          != __("Ship items to the above billing address")
+  // /ko
+h2= __("Shipping Address")
+.alert.alert-info(data-bind="visible: $parent.copyAddress")= __("Item(s) will be shipped to your billing address.")
+.container-fluid(data-bind="visible: $parent.notCopyAddress")
+  // ko with: shipping_address
+  include address
+  // /ko

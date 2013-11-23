@@ -1,0 +1,331 @@
+#farmCarousel
+  .carousel-inner
+    height:460px
+
+    img
+      width:100%
+
+    > .item
+      height:460px
+
+    .carousel-caption
+      position:absolute
+      top:136px
+      left:106px
+      width:348px
+      height:286px
+      background-image:url("/images/farm-sign.png")
+      background-repeat:no-repeat
+      background-color:transparent
+      padding-right:40px
+      
+      h1
+        margin-top:20px
+        margin-bottom:20px
+      p
+        color:inherit
+        margin-bottom: 7px
+
+  .row-fluid
+    img
+      margin-top:-2px
+
+.floating-leaves
+  background-image:url("/images/header-leaves.png")
+  background-repeat:no-repeat
+  position:absolute
+  width:213px
+  left:0
+  top:89px
+  height:113px
+  z-index:2
+
+.thumbnails.products  
+  .thumbnail    
+    background-image:url("/images/product-img-bg.png")
+    background-repeat:no-repeat
+    border:0pt none
+    -webkit-box-shadow:none
+    -moz-box-shadow:none
+    box-shadow:none
+    width:269px 
+    height:194px
+    margin:auto
+    position:relative
+
+    img
+      width:254px 
+      height:170px
+      display:block
+      margin:12px 8px
+      position:absolute
+      top:0
+      left:0
+
+    .details
+      visibility:hidden
+      background-color:rgba(237, 119, 14, 0.8)
+      width:239px
+      height:170px
+      position:absolute
+      top:0
+      left:0
+      margin:12px 8px
+      padding-left: 15px
+      z-index:10
+      a
+        background-image:url("/images/buttons/bgray.png")
+        background-repeat:no-repeat
+        height:32px
+        width:148px
+        display:block
+        line-height:32px
+        padding-left: 15px
+
+        &:hover
+          background-image:url("/images/buttons/bgray1.png")
+          text-decoration:none
+
+    &:hover     
+      .details 
+        visibility:visible   
+
+
+.filter
+  margin-bottom: 15px
+
+  div
+    min-height:52px
+    min-width:49px
+  input
+    position:absolute    
+    margin:0
+    /*hide the radio button*/
+    -moz-opacity:0
+    -khtml-opacity:0
+    opacity:0
+    cursor:pointer
+
+  input[type="radio"]:checked + span
+    visibility:visible 
+  
+  .radio input[type="radio"]
+    margin-left:0px
+
+.btn-veggie
+  input  
+    width:29px
+    height:30px
+    margin: 11px 10px !important
+
+  span
+    position:absolute
+    
+    width:29px
+    height:30px    
+    background-image:url("/images/buttons/icons/Veggie.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 11px 10px
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/Veggie1.png")
+
+.btn-fruit
+  input  
+    width:32px
+    height:35px
+    margin: 8.5px 8.5px !important
+
+  span
+    position:absolute    
+    width:32px
+    height:35px    
+    background-image:url("/images/buttons/icons/Fruit.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 8.5px 8.5px
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/Fruit1.png")
+
+.btn-eggs
+  input  
+    width:44px
+    height:29px
+    margin: 11.5px 3px !important
+
+  span
+    position:absolute    
+    width:44px
+    height:29px    
+    background-image:url("/images/buttons/icons/Eggs.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 11.5px 3px
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden
+    background-image:url("/images/buttons/icons/Eggs1.png")
+
+.btn-poultry
+  input  
+    width:31px
+    height:35px
+    margin: 8.5px 9px !important
+
+  span
+    position:absolute    
+    width:31px
+    height:35px    
+    background-image:url("/images/buttons/icons/Poultry.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 8.5px 9px
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/Poultry1.png")
+
+.btn-pork
+  input  
+    width:42px
+    height:28px
+    margin: 12px 3.5px !important
+  span
+    position:absolute    
+    width:42px
+    height:28px 
+    background-image:url("/images/buttons/icons/Pork.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 12px 3.5px 
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/Pork1.png")
+
+.btn-beef
+  input  
+    width:49px
+    height:31px
+    margin: 10.5px 0px !important
+  span
+    position:absolute    
+    width:49px
+    height:31px
+    background-image:url("/images/buttons/icons/Beef.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 10.5px 0px 
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/Beef1.png")
+
+.btn-dairy
+  input  
+    width:21px
+    height:35px
+    margin: 8.5px 14px !important
+  span
+    position:absolute    
+    width:21px
+    height:35px  
+    background-image:url("/images/buttons/icons/Dairy.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 8.5px 14px
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden
+    background-image:url("/images/buttons/icons/Dairy1.png")
+
+.btn-cheese
+  input  
+    width:37px
+    height:32px
+    margin: 10px 6px !important
+  span
+    position:absolute    
+    width:37px
+    height:32px  
+    background-image:url("/images/buttons/icons/Cheese.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 10px 6px 
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/Cheese1.png")
+
+.btn-meal
+  input  
+    width:47px
+    height:29px
+    margin: 11.5px 1px !important
+  span
+    position:absolute    
+    width:47px
+    height:29px   
+    background-image:url("/images/buttons/icons/Meal.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 11.5px 1px
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/Meal1.png") 
+.btn-sweet
+  input  
+    width:25px
+    height:30px
+    margin: 11px 12px !important
+
+  span
+    position:absolute    
+    width:25px
+    height:30px  
+    background-image:url("/images/buttons/icons/Sweet.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 11px 12px 
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/Sweet1.png")
+.btn-all
+  input  
+    width:37px
+    height:52px
+    margin: 0px 6px !important
+
+  span
+    position:absolute    
+    width:37px
+    height:52px  
+    background-image:url("/images/buttons/icons/all.png")
+    background-repeat:no-repeat
+    background-color:transparent
+    border:0pt none
+    margin: 0px 6px 
+
+  input[type="radio"] + span /*the span element that immediately follow the radio button */
+    visibility:hidden; 
+    background-image:url("/images/buttons/icons/all1.png")
+
+.link-no-underline
+  a:hover
+    text-decoration:none

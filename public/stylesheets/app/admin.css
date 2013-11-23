@@ -1,0 +1,27 @@
+section.row-fluid {
+  margin-top: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(127,127,127,0.5);
+  border-radius: 8px;
+  padding: 20px;
+}
+ul#icons {
+  margin: 0;
+  padding: 0;
+}
+ul#icons li {
+  margin: 2px;
+  position: relative;
+  padding: 4px 0;
+  cursor: pointer;
+  float: left;
+  list-style: none;
+}
+ul#icons span.ui-icon {
+  float: left;
+  margin: 0 4px;
+}
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}

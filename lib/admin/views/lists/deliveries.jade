@@ -1,0 +1,19 @@
+.span12(data-bind="foreach: deliveries") 
+  .row-fluid
+    table.table.table-striped 
+      caption(data-bind="text: delivery.timeframe.begin.toLocaleString()") 
+      caption(data-bind="text: delivery.info.customer.shipping_address.str") 
+      tbody(data-bind="foreach:skus")
+        tr
+          td
+            table.table.table-striped 
+              caption(data-bind="text: farm.name") 
+              thead
+                tr          
+                  th(colspan="2")= __("Share description")
+                  th= __("Quantity")          
+              tbody(data-bind="foreach: shares")
+                tr
+                  td(data-bind="text: share.photo")
+                  td(data-bind="text: share.name")
+                  td(data-bind="text: quantity")

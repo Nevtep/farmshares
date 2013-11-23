@@ -1,0 +1,85 @@
+section.row-fluid#farm(data-bind="with: farmData")
+  // ko when: ready
+  .span5
+    legend= __("Farm Info")
+    .control-group#errors
+    .control-group
+      label(for='farm-name')= __("Farm Name")
+      input(name='farm-name', type='text', data-bind="value: name")
+      input(name='farm-id', type='hidden', data-bind="value: _id")
+    .control-group
+      label(for='farm-age')= __("Farm Age")
+      input(name='farm-age', type='text', data-bind="value: age")
+    .control-group
+      label(for='farm-output')= __("Farm Output")
+      input(name='farm-output', type='text', data-bind="value: output")
+    .control-group
+      label(for='farm-meta')= __("Farm Meta Tags")
+      input(name='farm-meta', type='text', data-bind="value: meta")
+    .control-group
+      label.checkbox
+        input(type="checkbox", name="disabled", data-bind="checked: disabled")
+        | #{__("Disabled")}    
+    .control-group
+      label(for='video')= __("Video (just the code as in watch?v=CODE)")
+      input(name='farm-video', type='text', data-bind="value: video")
+    legend= __("Farmer Details")
+    // ko when: $data.farmer.ready
+    .control-group
+      label(for='farmer-name')= __("Farmer Name")
+      input(name='farmer-name', type='text', data-bind="value: farmer.fullname")
+    .control-group
+      label(for='farmer-email')= __("Farmer Email")
+      input(name='farmer-email', type='email', data-bind="value: farmer.email")
+    // /ko
+    .control-group
+      label(for='logo')= __("Logo")      
+      .row.fileupload-buttonbar
+        .span7
+          span.btn.btn-success.fileinput-button.offset1
+            i.icon-plus.icon-white
+            span= __("Add a Logo...")
+            input(type="file", name="logo", autoUpload=false, data-url="/upload/farm/logo", data-bind="fileUploader: { datatype: 'json', add: $parent.addLogoToFarm }")
+      .row
+        ul.thumbnails(data-bind="preview: logoUpload")
+          li
+            a.thumbnail(href="#", data-bind="click: function(data,evt) { $parent.logoUpload.remove($data)}")
+              canvas.ImageM#preview
+  .span6
+    legend= __("Farm Details")
+    .control-group
+      label(for='farm-description-en')= __("Farm Description (English)")
+      textarea(name='farm-description-en', data-bind="value: description.en")
+    .control-group
+      label(for='farm-description-es')= __("Farm Description (Spanish)")
+      textarea(name='farm-description-es', data-bind="value: description.es")
+    legend= __("Farm Location")
+    .control-group
+    label.control-label= __("Phone Number")
+    .controls
+      input.input-mini(type="text", data-bind="value: location.telephone.country_code", required)
+      input.input-mini(type="text", data-bind="value: location.telephone.local_code", required)
+      input.input-small(type="text", data-bind="value: location.telephone.number",  required)
+    .control-group
+      label(for='farm-location')= __("Location")      
+      input.input-xlarge#farm-location(name='farm-location', type='text', placeholder="#{__("Enter a location")}", autocomplete="on", data-bind="value: location.str, event: { change: $parent.locationChanged }")
+      #map_canvas(style="width: 520px; height: 300px;")
+    .control-group
+      label.control-label= __("City")
+      .controls
+        input(type="text", data-bind="value: location.city.name", required)
+    .control-group
+      label.control-label= __("Zip Code")
+      .controls
+        input(type="text", data-bind="value: location.city.zip", required)
+    .control-group
+      label.control-label= __("Country")
+      .controls
+        input(type="text", data-bind="value: location.country.name", required)
+    .control-group
+      label.control-label= __("State")
+      .controls
+        input(type="text", data-bind="value: location.state.name", required)
+        
+      
+  // /ko

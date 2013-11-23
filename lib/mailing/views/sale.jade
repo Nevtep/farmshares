@@ -1,0 +1,18 @@
+h2 #{__("Congratulations")} #{farmer.name.first}
+h3 #{__n("Congratulations an order for a %s-month(s)","Congratulations an order for a %s-month(s)", #{timeframe})} #{share.name}-sized #{share.type}-Share has been confirmed!
+
+p= __("You just got another customer. That's another person who will be able to enjoy your food!")
+  | #{__("An amount of")} #{share.currency} #{amount} #{__("will be cleared to you within 10 business days.")}
+
+p= __("Customer Information:")
+ul
+  li #{__("Name")}: #{account.name.full}
+  li #{__("Delivery Address")}: #{delivery}
+  li #{__("Expected Delivery Day")}: #{next_friday}
+
+p #{__("sincerely")},
+p 
+  a(href="http://www.farmshar.es", target="_blank") FarmShares 
+  | #{__("Team")}
+
+include partials/footer.jade

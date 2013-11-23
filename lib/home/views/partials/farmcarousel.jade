@@ -1,0 +1,16 @@
+#farmCarousel.carousel.slide
+  .carousel-inner(data-bind="foreach: farms")
+    .item
+      img(data-bind="attr: { src : featured }")
+      .container
+        .carousel-caption.text-center
+          h1.title26.blue(data-bind="text: name")
+          if getLocale() == "es"
+            p.text12.text-left(data-bind="text: description.es")
+          if getLocale() == "en"
+            p.text12.text-left(data-bind="text: description.en")
+          a.btn.btn-success(data-bind="attr: { href : url }")= __("Learn More")
+  a.carousel-control.left(href="#farmCarousel", data-slide="prev") &lsaquo;
+  a.carousel-control.right(href="#farmCarousel", data-slide="next") &rsaquo;
+  .row-fluid.span12.text-center
+    != CDN("/images/shadowline.png")

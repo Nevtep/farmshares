@@ -1,0 +1,101 @@
+.navbar-fixed-top {
+  background-image: url("/images/header-blank.png"), url("/images/header-repeat.png");
+  background-repeat: no-repeat, repeat-x;
+  background-position: 0 0, 1026px 0px;
+  min-height: 108px;
+}
+.navbar-fixed-top .navbar {
+  margin-bottom: 0px;
+}
+.navbar-fixed-top .navbar .nav > li > a {
+  padding: 8px 12px 8px 12px;
+  text-shadow: none;
+  color: #fff;
+}
+.navbar-fixed-top .navbar-heading {
+  margin-top: 3px;
+  border: 0pt none;
+  min-height: 32px;
+  max-height: 32px !important;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: transparent;
+}
+.navbar-fixed-top .navbar-heading .nav-tabs {
+  border: 0pt none;
+  padding-left: 510px;
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li a {
+  text-shadow: none;
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li a:hover {
+  border: 0pt none;
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li.tab-green {
+  background-image: url("/images/buttons/tab1.png");
+  background-repeat: no-repeat;
+  width: 103px;
+  position: relative;
+  z-index: 3;
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li.tab-green:hover {
+  background-image: url("/images/buttons/tab1-1.png");
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li.tab-blue {
+  background-image: url("/images/buttons/tab2.png");
+  background-repeat: no-repeat;
+  width: 107px;
+  position: relative;
+  z-index: 2;
+  margin-left: -20px;
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li.tab-blue:hover {
+  background-image: url("/images/buttons/tab2-1.png");
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li.tab-blue:hover > a > span {
+  color: #fff !important;
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li.tab-blue-large {
+  background-image: url("/images/buttons/tab3.png");
+  background-repeat: no-repeat;
+  width: 211px;
+  position: relative;
+  z-index: 1;
+  margin-left: -20px;
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li.tab-blue-large:hover {
+  background-image: url("/images/buttons/tab3-1.png");
+}
+.navbar-fixed-top .navbar-heading .nav-tabs li.tab-blue-large:hover > a > span {
+  color: #fff !important;
+}
+.navbar-fixed-top .navbar-inner {
+  margin-top: 10px;
+  background: transparent;
+  filter: none;
+  border: 0pt none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding-right: 20px;
+}
+.navbar-fixed-top .navbar-inner .brand {
+  top: 25px;
+  left: 75px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+.navbar-fixed-top .navbar-inner .nav {
+  padding-left: 320px;
+}
+.navbar-fixed-top .navbar-inner .navbar-search {
+  padding-left: 78px;
+}
+.navbar-fixed-top .navbar-inner .nav-pills li a {
+  text-shadow: none;
+}
+.navbar-fixed-top .navbar-inner .nav-pills li a:hover {
+  color: #ccc;
+}

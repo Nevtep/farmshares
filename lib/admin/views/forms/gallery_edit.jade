@@ -1,0 +1,6 @@
+.row-fluid(data-bind="with: farmForm.farmData")
+  .span12(data-bind="when: ready")
+    ul.thumbnails(data-bind="foreach: gallery")
+      li
+        a.thumbnail(href="#", data-bind="click: function(data,evt) { $parent.gallery.remove($data)}")
+          img.ImageM(data-bind="attr: { src:$data}")

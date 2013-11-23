@@ -1,0 +1,40 @@
+.container
+  .row-fluid
+    .span4
+      h2.title18= __("Social Connection")
+      hr.invert
+      p.text11= __("Follow us on your favorite social network for promotions and discounts")
+      p.link-no-underline
+        a(href="http://www.facebook.com/RealFilling/")        
+          != CDN("/images/social-fb.png")
+        a(href="http://www.twitter.com/farmshares/")
+          != CDN("/images/social-tw.png")
+        a(href="https://pinterest.com/realfilling/")
+          != CDN("/images/social-pin.png")
+        a(href="https://www.youtube.com/user/RealFilling/videos?view=0")
+          != CDN("/images/social-yt.png")
+      hr.invert
+      p.text-center
+        iframe(src="//www.facebook.com/plugins/facepile.php?href=http%3A%2F%2Ffacebook.com%2FRealFilling&amp;app_id=305404186225817&amp;action&amp;max_rows=1&amp;size=medium&amp;show_count=true&amp;width=300&amp;colorscheme=light&amp;appId=305404186225817", scrolling="no", frameborder="0", style="border:none; overflow:hidden; width:300px;", allowTransparency="true")
+    .span4
+      h2.title18= __("Newsletter")
+      hr.invert
+      p.text11= __("Subscribe for updates on new farms, nutrition, feeding the world substainably and investing in substainble agriculture")
+      form(action="/subscribe", method="POST")
+        fieldset
+          input.text11.light(type="text", placeholder="your name", name="name", id="name")
+          input.text11.light(type="text", placeholder="your email address", name="email", id="email")
+          br
+          button.btn.btn-primary(type="submit")= __("Subscribe")
+    .span4
+      h2.title18= __("News Updates")
+      hr.invert
+      // ko foreach: news
+      .media
+        .media-body
+          a(data-bind="attr: { href : link }")
+            h4(data-bind="text: title")
+          // ko text: description
+          // /ko
+      // /ko
+      a.btn.btn-primary(href="http://blog.farmshares.com")= __("Visit our Blog")

@@ -1,0 +1,47 @@
+.navbar-wrapper
+  .navbar.navbar-fixed-top
+    .navbar
+      .navbar-heading 
+        ul.nav.nav-pills.pull-right
+          if getLocale() != "es"
+            li
+              a(href="?lang=es")
+                != CDN("/images/buttons/lang-esp.png")
+          if getLocale() != "en"
+            li
+              a(href="?lang=en")
+                != CDN("/images/buttons/lang-ing.png")
+      
+        ul.nav.nav-tabs.pull-right
+          li.tab-green.title17.white
+            if everyauth.loggedIn
+              a.title12.white(href="/customer", style="padding: 8px 4px 8px 4px; font-weight: bold")= __("My Account")
+            else
+              a.title17.white(href="/login")= __("Sign In")
+          li.tab-blue
+            a(href="/cart")
+              i.icon-cart
+              span.title12.blue.simpleCart_quantity
+              span.title12.blue= __(" items")
+          li.tab-blue-large
+            a(href="skype:+15402270730?call")
+              != CDN("/images/buttons/skype-call.png")
+              span.title12.blue= __("Call us")
+              span.title14.blue +1 5402270730
+        
+    .navbar
+      .navbar-inner
+        a.brand(href="/")
+          != CDN("/images/farmshares-logo.png")
+        ul.nav.nav-pills.navmenu
+          li
+            a(href="/products")= __("Products")
+          li
+            a(href="/farms")= __("Farms")
+          //-li
+            //-a(href="#")= __("FAQ")
+          li
+            a(href="mailto:support@farmshares.com")= __("Contact")
+        form.navbar-search.pull-right.hide     
+            input.search-query(type="text", placeholder="Search")
+            button.btn-search

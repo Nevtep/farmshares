@@ -1,0 +1,12 @@
+extends ../../views/layouts/main
+
+append css
+  != CDN("/stylesheets/app/auth/login.css")
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/auth/loginInit.js")
+
+block content
+  .container
+    include partials/loginorregister
+  

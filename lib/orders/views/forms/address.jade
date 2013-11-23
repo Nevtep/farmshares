@@ -1,0 +1,56 @@
+form.form-horizontal
+  .control-group
+    label.control-label= __("First Name")
+    .controls
+      input(type="text", data-bind="value: $parent.name.first", required)
+      p(data-bind="validationMessage: $parent.fullname")
+  .control-group
+    label.control-label= __("Last Name")
+    .controls
+      input(type="text", data-bind="value: $parent.name.last", required)
+      p(data-bind="validationMessage: $parent.fullname")
+  .control-group
+    label.control-label= __("eMail")
+    .controls
+      input(type="text", data-bind="value: $parent.email", required)
+      p(data-bind="validationMessage: $parent.email")
+  .control-group
+    label.control-label= __("Phone Number")
+    .controls
+      input.input-mini(type="text", data-bind="value: telephone.country_code", required)
+      input.input-mini(type="text", data-bind="value: telephone.local_code", required)
+      input.input-small(type="text", data-bind="value: telephone.number",  required)
+      p
+        span(data-bind="validationMessage: telephone.country_code")
+        span(data-bind="validationMessage: telephone.local_code")
+        span(data-bind="validationMessage: telephone.number")
+  .control-group
+    label.control-label= __("Address")
+    .controls
+      input(type="text", autocomplete="on", data-bind="value: str, event: { change: $parentContext.$parent.locationChanged }", required)
+      p(data-bind="validationMessage: str")
+  .control-group
+    label.control-label= __("City")
+    .controls
+      input(type="text", data-bind="value: city.name", required)
+      p(data-bind="validationMessage: city.name")
+  .control-group.hide
+    label.control-label= __("Zip Code")
+    .controls
+      input(type="text", data-bind="value: city.zip")
+      p(data-bind="validationMessage: city.zip")
+  .control-group
+    label.control-label= __("Country")
+    .controls
+      input(type="text", data-bind="value: country.name", required)
+      p(data-bind="validationMessage: country.name")
+  .control-group
+    label.control-label= __("State")
+    .controls
+      input(type="text", data-bind="value: state.name", required)
+      p(data-bind="validationMessage: state.name")
+  yield
+  
+  
+  
+

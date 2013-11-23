@@ -1,0 +1,9 @@
+extends ../../views/layouts/main
+
+append css
+  != CDN("/stylesheets/app/auth/login.css")
+  
+block content
+  .container
+    .span6.offset3
+      include forms/register

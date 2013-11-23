@@ -1,0 +1,83 @@
+extends ../../views/layouts/base
+
+block title
+  title= __("Farm Shares: Meet, Learn, Eat!")
+
+append css
+  != CDN("/stylesheets/app/orders/checkout.css")
+  
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/orders/checkoutInit.js")
+  
+block header
+  a.logo(href="/")
+    != CDN("/images/farmshares-logo.png")
+
+block content
+  .container
+    .row-fluid
+      .span9
+        .section
+          .navbar
+            .navbar-inner
+              a.heading.title26.blue.bold= __("1. Sign In")
+              if everyauth.loggedIn
+                ul.nav.pull-right
+                  li
+                    a.text10.blue(href="/logout")= __("Not %s?", user.name.first || user.email);
+          if everyauth.loggedIn
+            #signedin.section-content
+              span.text.light= __("Welcome %s!", user.name.first || user.email)          
+          else
+            #signin.section-content
+              include ../../auth/views/partials/loginorregister          
+  
+        .section(data-bind="when: accountReady")
+          .navbar
+            .navbar-inner
+              a.heading.title26.blue.bold(href="#",data-toggle="collapse", data-target="#addresses")= __("2. Shipping and Billing")
+              ul.nav.pull-right(data-bind="visible: placingOrder")
+                li
+                  a.text10.blue(href="#", data-bind="click: editAddress")= __("Edit");
+          #editaddresses.section-content(data-bind="visible: editingAddress")
+            // ko with: account
+            include forms/shippingandbilling
+            // /ko
+            a.btn.btn-success(href="#", data-bind="click: confirmAddresses")= __("Continue")
+          #viewaddresses.section-content(data-bind="visible: confirmedAddress")
+            // ko with: account
+            include partials/shippingandbilling
+            // /ko
+        .section(data-bind="when: accountReady")
+          .navbar
+            .navbar-inner
+              a.heading.title26.blue.bold(href="#",data-toggle="collapse", data-target="#order")= __("3. Place Order")
+          #order.section-content(data-bind="visible: placingOrder")
+            include partials/placeorder
+      .span3
+        .row-fluid
+          .pull-left.title14.blue= __("Cart Summary")
+          .pull-right
+            a.text10.blue(href="/cart")= __("Edit")
+        .row-fluid.dark-row
+           include partials/orderdetails
+        .row-fluid.dark-row
+          .pull-left.title12.black= __("Subtotal")
+          .pull-right.title12.black.simpleCart_total
+        .row-fluid.dark-row
+          .pull-left.title12.black= __("Shipping")
+          .pull-right.title12.black.simpleCart_shipping
+        .row-fluid.dark-row
+          .pull-left.title16.blue.uppercase= __("Order Total")
+          .title18.blue.uppercase.bold.simpleCart_grandTotal &nbsp;
+            
+
+block footer
+  .hr
+  .info
+    .container-fluid
+      .row-fluid.menufooter
+        span= __("Need help?")
+        a(href="skype:+15402270730?call")
+          span.title12.blue= __("Call us")
+          span.title14.blue +1 5402270730

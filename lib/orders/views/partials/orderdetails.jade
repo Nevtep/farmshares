@@ -1,0 +1,8 @@
+.order-detail(data-bind="with: cart")
+  .container-fluid(data-bind="foreach: farms")
+    h5.title12.black.uppercase(data-bind="text: name")
+    .row-fluid(data-bind="html: content.html()")
+    .row-fluid
+      .pull-left.title12.black.uppercase.bold= __("Farm Total")
+      .farm-total.pull-right.title12.black(data-bind="html: total")
+    hr.black

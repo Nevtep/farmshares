@@ -1,0 +1,7 @@
+extends layouts/admin
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/admin/dashboardInit.js")
+block inner  
+  h3 #{__("Welcome")}, #{user.name.first}!
+  p= __("Soon we'll include basic analytics here so you can get a glance of what's going on.")

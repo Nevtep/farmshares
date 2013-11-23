@@ -1,0 +1,10 @@
+form(action="/register", method="POST")
+  fieldset    
+    label.muted= __("Email")
+    input.input-block-level(type="text", name="email",id="email", required)
+    label.muted= __("Choose password")
+    input.input-block-level(type="password", name="password",id="password", required)
+    label.muted= __("Repeat password")
+    input.input-block-level(type="password", name="password_repeat",id="password_repeat", required)
+    button.btn.btn-large.btn-success(type="submit")
+      span= __("Register")

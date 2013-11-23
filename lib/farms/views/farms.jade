@@ -1,0 +1,97 @@
+extends ../../views/layouts/main
+
+append css
+  != CDN("/stylesheets/app/farm.css")  
+
+block content
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/farms/farmInit.js")
+  input#farm-name(type="hidden", value="#{locals.farm}")  
+  // ko when: farm.ready
+  .container-fluid#meet
+    .container
+      .row-fluid
+        .media(data-bind="with: farm")
+          .span3
+            span.pull-left(data-bind="if: logo")
+            img.media-object.ImageSb1(data-bind="attr: { src: logo, title: name }")
+          .span8
+            .media-body
+            h1.media-heading.title26.blue(data-bind="text: name")
+            if getLocale() == "es"
+              p.text14(data-bind="text: description.es")
+            if getLocale() == "en"
+              p.text14(data-bind="text: description.en")
+        .shareaholic-canvas(data-shareaholic-widgets='share_buttons')
+  .container
+    .row-fluid#eat
+      ul.media-list(data-bind="foreach: farm.skus")
+        li.media.simpleCart_shelfItem
+          .alert.alert-success.hide= __("Item Added!")
+          span.item_farm(data-bind="text: $parent.farm.name")
+          span.item_name(data-bind="text: name")
+          span.item_skuid(data-bind="text: _id")
+          span.pull-left(data-bind="with: selectedShare")
+            img.media-object.ImageM.item_image(data-bind="attr: { src: photo, title: name }")
+          .media-body
+            h4.title18.orange.item_title(data-bind="text: title")
+            p.text.item_description(data-bind="text: description")
+            .row-fluid
+              .span2
+                .label.label-info.title12.white= __("Share")
+                select.text11(data-bind="options: shares, optionsText: 'share', value: selectedShare")
+                #share-data(data-bind="with: selectedShare")
+                  span.item_shareid(data-bind="text: _id")
+                  span.item_sharename(data-bind="text: name")
+                  span.item_shareprice(data-bind="text: price")
+                  span.item_sharecurrency(data-bind="text: currency")
+                  span.item_shareunit(data-bind="text: $parent.unit")
+                  span.item_shareamount(data-bind="text: amount")
+              .span2(data-bind="with: selectedShare")
+                .label.label-info.title12.white= __("Unit Price")
+                .text14(data-bind="text: cost")
+              .span2(data-bind="with: selectedShare")
+                .label.label-info.title12.white= __("Subscription")
+                select.text11(data-bind="options: subscriptions, optionsText: 'name', value: selectedSubscription")
+                #subscription-data(data-bind="with: selectedSubscription")
+                  span.item_subscriptionid(data-bind="text: _id")
+                  span.item_subscriptionname(data-bind="text: name")
+                  span.item_subscriptiondeliveries(data-bind="text: deliveries")
+                  span.item_subscriptiondiscount(data-bind="text: discount")
+              .span2
+                .label.label-info.title12.white= __("Total")
+                .item_price.text14(data-bind="text: totalDisplay")
+              .span4            
+                a.btn.btn-success.item_add(href="javascript:;", data-bind="click: $parent.showAddItemMessage")
+                  span= __("Add to Cart")
+                  i.pull-right.icon-shopping-cart.icon-white
+            .row-fluid
+              span.text14.blue(data-bind="text: deliveries")
+              span.text14.blue= __(" Deliveries ")
+              span.text14.blue= __("from ")
+              span.text14.blue(data-bind="text: today")
+              span.text14.blue= __(", to ")
+              span.text14.blue(data-bind="text: deadline")
+              span(data-bind="visible: hasSavings")
+                span.text14.blue , 
+                span.text14.orange= __("SAVINGS on subscription: ")
+                span.text14.orange(data-bind="text: discountDisplay")
+  .container
+    .row-fluid#learn
+      h1.title20.green= __("Learn more about ")
+        span.uppercase(data-bind="text: farm.name")
+      .ImageViewer
+        ul.thumbnails
+          li.span10
+            img.preview(data-bind="attr: { src : selectedImage }, visible: showingImage")
+            .video(data-bind="visible: showingVideo")
+              iframe( id="ytplayer", type="text/html", width="692", height="420", data-bind="attr: { src: farm.videoUrl }", frameborder="0")
+          li.span2(data-bind="visible: farm.hasVideo")
+            a.thumbnail(data-bind="click: showVideo")
+              img(data-bind="attr: { src: farm.videoThumbnail }")
+          // ko foreach: farm.thumbnails
+          li.span1
+            a.thumbnail(data-bind="click: $root.showImage")
+              img(data-bind="attr: { src: $data }")
+          // /ko
+  // /ko
+  include partials/guarantee

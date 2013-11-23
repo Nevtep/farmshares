@@ -1,0 +1,11 @@
+extends layouts/admin
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/admin/farmsWholesalesInit.js")
+  
+block inner
+  input#farm-id(type="hidden", value="#{locals.farmId}")
+  .row-fluid
+    h3= __("Wholesales Dispatch")
+  .row-fluid(data-bind="with: dispatch")
+    include lists/wholesales

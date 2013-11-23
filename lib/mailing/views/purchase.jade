@@ -1,0 +1,31 @@
+h2 #{__("Congratulations")} #{account.name.first}
+h3= __("Here is your order summary")
+
+each shareholding in shareholdings
+  .row-fluid
+    table.table.table-striped 
+      caption #{shareholding.farm.name}
+      thead
+        tr      
+          th(colspan="2")= __("Share description")
+          th= __("Quantity")
+          th= __("Subscription")
+          th= __("Next Delivery")
+      tbody
+        each sku in shareholding.skus
+          tr
+            td 
+            td #{sku.share.name}
+            td #{sku.quantity}
+            td #{sku.subscription.name}
+            td #{sku.delivery.timeframe.begin.toLocaleDateString()}
+
+p #{__("We'll be delivering to this address")}:
+  | #{account.shipping_address.str}
+
+p
+  span= __("If you want to read more about us, ") 
+  a(href="http://blog.farmshares.com/")= __("visit our blog")
+p #{__("The FarmShares Team")}
+
+include partials/footer.jade

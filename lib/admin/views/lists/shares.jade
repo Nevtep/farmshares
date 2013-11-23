@@ -1,0 +1,22 @@
+table.table.table-striped
+  thead
+    tr
+      th= __("Name")
+      th= __("Currency")
+      th= __("Price")
+      th= __("Amount")
+      th= __("Actions")
+  tbody(data-bind="foreach: shares")
+    tr 
+      td(data-bind="text: name")
+      td(data-bind="text: currency")
+      td(data-bind="text: price")
+      td(data-bind="text: amount")          
+      td(style="width:100px")
+        ul#icons
+          li(title="Edit")
+            a(href="#share-form", role="button", data-toggle="modal", data-bind="click: function(data,event) { $root.skuForm.shareForm.editShare(data); }")
+              i.icon-pencil
+          li(title="Delete")
+            a(data-bind="click: function(data,event) { $parent.shares.destroy(data) }")
+              i.icon-remove

@@ -1,0 +1,15 @@
+*.psd
+.DS_Store
+node_modules
+public/uploads
+public/farms/*
+tmp
+*.*~
+.project
+.nide
+*.swp
+.db
+ls
+dbdump
+start-debug
+test/*

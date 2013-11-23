@@ -1,0 +1,30 @@
+extends layouts/admin
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/admin/usersListInit.js")
+  
+block inner
+  h2= __("Users List")
+  table.table.table-striped
+    thead
+      tr
+        th= __("User Name")
+        th= __("User Email")
+        th(colspan="3")= __("Actions")
+    tbody
+      for account in accounts
+        tr
+          td #{account.name.first} #{account.name.last} 
+          td #{account.email}
+          td
+            a(href="/admin/users/edit/#{account.id}")
+              i.icon-edit
+          td
+            a(href="/admin/users/shareholdings/#{account.id}")
+              i.icon-gift
+          td
+            a(href="/admin/users/deliveryplan/#{account.id}")
+              i.icon-road
+          //- td
+          //-   a(href="/admin/users/deliveryschedule/#{account.id}")
+          //-     i.icon-time

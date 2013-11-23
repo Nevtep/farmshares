@@ -1,0 +1,17 @@
+extends ../../../views/layouts/main
+
+block title
+  title FS Customer Dashboard
+    
+append js
+  include ../../../views/partials/requirejsconfig
+
+append css
+  != CDN('/stylesheets/app/customer.css')
+
+append content
+  .container-fluid
+    .span3
+      include ../partials/menu
+    .span9
+      block section

@@ -1,0 +1,50 @@
+extends layouts/admin
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/admin/usersEditInit.js")
+  
+block inner
+  h2= __("Edit Account" )
+  p
+    strong Name: 
+    | #{account.name.first}
+    | #{account.name.last}
+  p
+    strong Email: 
+    | #{account.email}
+  h4 Roles
+  form(method="POST",action="/admin/users/edit")
+    input(type="hidden",name="id",value="#{account._id}")
+    p
+      if admin == true
+        input(type="checkbox",name="admin",id="checkbox-admin",checked)
+      else 
+        input(type="checkbox",name="admin",id="checkbox-admin")
+      |  Admin
+    p
+      if farmer == true
+        input(type="checkbox",name="farmer",id="checkbox-farmer",checked)
+      else 
+        input(type="checkbox",name="farmer",id="checkbox-farmer")
+      |  Farmer
+    p
+      if courier == true
+        input(type="checkbox",name="courier",id="checkbox-courier",checked)
+      else 
+        input(type="checkbox",name="courier",id="checkbox-courier")
+      |  Courier
+    p
+      if customer == true
+        input(type="checkbox",name="customer",id="checkbox-customer",checked)
+      else 
+        input(type="checkbox",name="customer",id="checkbox-customer")
+      |  Customer
+    p
+      if storemanager == true
+        input(type="checkbox",name="storemanager",id="checkbox-storemanager",checked)
+      else 
+        input(type="checkbox",name="storemanager",id="checkbox-storemanager")
+      |  Store manager
+    p
+      input(type="submit", name="submit") Submit
+

@@ -1,0 +1,12 @@
+﻿.span12(data-bind="foreach: wholesales")
+  .row-fluid
+    table.table.table-striped  
+      caption(data-bind="text: courier.location.str")
+      thead
+        tr
+          th= __("SKU")
+          th= __("Amount")
+      tbody(data-bind="foreach: batchs")
+        tr
+          td(data-bind="text: sku.name")
+          td(data-bind="text: amount")

@@ -1,0 +1,9 @@
+.row-fluid
+  .span6
+    h2= __("Billing Address")
+    address(data-bind="with: billing_address")
+      include address
+  .span6
+    h2= __("Shipping Address")
+    address(data-bind="with: shipping_address")
+      include address

@@ -1,0 +1,102 @@
+.content {
+  margin-top: 120px;
+}
+.row-fluid#eat {
+  max-width: 940px;
+  margin-left: 30px;
+  margin-top: 20px;
+  z-index: 10;
+}
+.row-fluid#eat .simpleCart_shelfItem {
+  position: relative;
+}
+.row-fluid#eat .simpleCart_shelfItem .alert {
+  position: absolute;
+  top: 60%;
+  left: 79%;
+}
+.row-fluid#eat .simpleCart_shelfItem .item_farm,
+.row-fluid#eat .simpleCart_shelfItem .item_name,
+.row-fluid#eat .simpleCart_shelfItem .item_skuid,
+.row-fluid#eat .simpleCart_shelfItem .item_shareid,
+.row-fluid#eat .simpleCart_shelfItem .item_sharename,
+.row-fluid#eat .simpleCart_shelfItem .item_shareprice,
+.row-fluid#eat .simpleCart_shelfItem .item_sharecurrency,
+.row-fluid#eat .simpleCart_shelfItem .item_shareunit,
+.row-fluid#eat .simpleCart_shelfItem .item_shareamount,
+.row-fluid#eat .simpleCart_shelfItem .item_subscriptionid,
+.row-fluid#eat .simpleCart_shelfItem .item_subscriptionname,
+.row-fluid#eat .simpleCart_shelfItem .item_subscriptiondeliveries,
+.row-fluid#eat .simpleCart_shelfItem .item_subscriptiondiscount {
+  display: none;
+}
+.row-fluid#eat .Text11 {
+  font-family: Geneva, sans-serif;
+  color: #333;
+  font-size: 11px;
+  line-height: 18px;
+}
+.row-fluid#eat select {
+  width: 100%;
+}
+.row-fluid#eat .label-info {
+  width: 100%;
+}
+.row-fluid#eat .TitleWhite12 {
+  font-family: Geneva, sans-serif;
+  color: #fff;
+  font-size: 11px;
+}
+.row-fluid#eat .TextOrgange14 {
+  font-family: Lucida Grande, sans-serif;
+  color: #c60;
+  font-size: 14px;
+  line-height: 24px;
+}
+.row-fluid#eat .TextBlue14 {
+  font-family: Lucida Grande, sans-serif;
+  color: #069;
+  font-size: 14px;
+  line-height: 24px;
+}
+.modal {
+  background-color: transparent;
+  border: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.row-fluid#learn {
+  max-width: 940px;
+  margin-left: 29px;
+  margin-top: 30px;
+}
+.row-fluid#learn .ImageViewer {
+  background: url("/images/ImageViewerbgd.jpg") no-repeat center;
+  width: 895px;
+  height: 456px;
+}
+.row-fluid#learn .ImageViewer .thumbnails {
+  padding: 17px 30px 17px 17px;
+}
+.row-fluid#learn .ImageViewer .preview {
+  background-color: #fff;
+  width: 692px;
+  height: 420px;
+}
+#meet {
+  background-color: #d1d5d8;
+  padding: 30px 0;
+}
+.row-fluid {
+  margin-left: 30px;
+}
+.media.simpleCart_shelfItem {
+  background-color: #cecdc9;
+}
+#eat li.media.simpleCart_shelfItem {
+  padding: 17px;
+}

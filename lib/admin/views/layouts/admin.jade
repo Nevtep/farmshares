@@ -1,0 +1,18 @@
+extends ../../../views/layouts/base
+
+block title
+  title FS Admin Dashboard
+
+append css  
+  != CDN('/stylesheets/app/admin.css')
+  != CDN('/stylesheets/vendor/jquery.fileupload-ui.css')
+
+block header
+  include ../partials/navbar
+
+block footer
+  include ../partials/footer
+
+block content
+  .container
+    block inner

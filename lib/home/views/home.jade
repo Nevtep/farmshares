@@ -1,0 +1,16 @@
+extends ../../views/layouts/main
+
+append css
+  != CDN("/stylesheets/app/home.css")
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/home/homeInit.js")
+  
+append header
+  .floating-leaves
+  include partials/farmcarousel
+  
+block content
+  include partials/products
+  include partials/bigfooter
+  

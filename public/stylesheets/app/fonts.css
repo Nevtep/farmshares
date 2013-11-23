@@ -1,0 +1,85 @@
+[class*="title"] {
+  font-family: Lucida Grande, sans-serif;
+}
+[class*="text"] {
+  font-family: Geneva, sans-serif;
+}
+[class*="title"],
+[class*="text"] {
+  color: #333;
+}
+.blue {
+  color: #0a77b6 !important;
+}
+.orange {
+  color: #c60 !important;
+}
+.green {
+  color: #690 !important;
+}
+.lightgreen {
+  color: #360 !important;
+}
+.white {
+  color: #fff !important;
+}
+.black {
+  color: #000 !important;
+}
+.light {
+  color: #ccc !important;
+}
+.bold {
+  font-weight: bold;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.title10 {
+  font-size: 10px;
+}
+.title12 {
+  font-size: 12px;
+}
+.title14 {
+  font-size: 14px;
+  line-height: 18px;
+}
+.title16 {
+  font-size: 14px;
+}
+.title17 {
+  font-size: 17px;
+}
+.title18 {
+  font-size: 18px;
+  line-height: 24px;
+}
+.title20 {
+  font-size: 20px;
+}
+.title24 {
+  font-size: 24px;
+  line-height: 30px;
+}
+.title26 {
+  font-size: 26px;
+}
+.text {
+  font-size: 12px;
+  line-height: 18px;
+}
+.text10 {
+  font-size: 10px;
+}
+.text11 {
+  font-size: 11px;
+  line-height: 18px;
+}
+.text12 {
+  font-size: 12px;
+}
+.text14 {
+  font-size: 14px;
+  line-height: 24px;
+}

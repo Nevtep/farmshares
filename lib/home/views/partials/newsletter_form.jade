@@ -1,0 +1,20 @@
+if locals.subscribed 
+  script
+    mixpanel.track("Subscription", {email: "#{email}"});
+  h3= __("Thanks for subscribing!")
+  h4= __("You will recieve news from us shortly at")
+    | #{email}
+  br
+  br
+  br
+  br
+else
+  h3= __("We are working hard to help you eat better!")
+  form.form-horizontal(action="/subscribe", method="POST")
+    legend= __("Meanwhile, why don't you subscribe to our newsletter?")
+    if locals.error
+      .control-group
+        span.label.label-important #{error}
+    .control-group
+      input.input-xlarge(type="email", name="email", style="height: 32px; font-size: 15pt;", placeholder="#{__("Your email here")}")
+      button.btn-large.btn-primary(type="submit", name="subscribe")= __("Keep me tuned!")

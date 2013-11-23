@@ -1,0 +1,108 @@
+extends section
+
+block section_title
+  h1.title26.blue= __("Your Info")
+  .alert.alert-success.hide#success= __("Your info was updated")
+block section_content
+  form.form-horizontal(data-bind="with: customer")
+    .control-group
+      label.control-label= __("eMail")
+      .controls
+        input(type="text", data-bind="value: email", required)
+        p(data-bind="validationMessage: email")
+    .control-group.hide
+      label.control-label= __("Password")
+      .controls
+        if user.hash        
+          a.text14.blue.disabled(href="#")= __("Change your Password...")
+        else
+          a.text14.blue.disabled(href="#")= __("Set Password...")        
+    .control-group
+      label.control-label= __("First Name")
+      .controls
+        input(type="text", data-bind="value: name.first", required)
+        p(data-bind="validationMessage: fullname")
+    .control-group
+      label.control-label= __("Last Name")
+      .controls
+        input(type="text", data-bind="value: name.last", required)
+        p(data-bind="validationMessage: fullname")
+    .control-group
+      label.control-label= __("Phone Number")
+      .controls(data-bind="with: billing_address")
+        input.input-mini(type="text", data-bind="value: telephone.country_code", required)
+        input.input-mini(type="text", data-bind="value: telephone.local_code", required)
+        input.input-small(type="text", data-bind="value: telephone.number",  required)
+        p
+          span(data-bind="validationMessage: telephone.country_code")
+          span(data-bind="validationMessage: telephone.local_code")
+          span(data-bind="validationMessage: telephone.number")
+  hr  
+  .container-fluid(data-bind="with: customer")
+    h2= __("Billing Address")
+    form.form-horizontal(data-bind="with: billing_address")
+      .control-group
+        label.control-label= __("Address")
+        .controls
+          input(type="text", autocomplete="on", data-bind="value: str, event: { change: $parentContext.$parent.locationChanged }", required)
+          p(data-bind="validationMessage: str")
+      .control-group
+        label.control-label= __("City")
+        .controls
+          input(type="text", data-bind="value: city.name", required)
+          p(data-bind="validationMessage: city.name")
+      .control-group.hide
+        label.control-label= __("Zip Code")
+        .controls
+          input(type="text", data-bind="value: city.zip")
+          p(data-bind="validationMessage: city.zip")
+      .control-group
+        label.control-label= __("Country")
+        .controls
+          input(type="text", data-bind="value: country.name", required)
+          p(data-bind="validationMessage: country.name")
+      .control-group
+        label.control-label= __("State")
+        .controls
+          input(type="text", data-bind="value: state.name", required)
+          p(data-bind="validationMessage: state.name")
+  hr
+  .container-fluid
+    h2= __("Shipping Address")
+    form.form-inline
+      .control-group
+        .controls
+          label.checkbox
+            input(type="checkbox", data-bind="checked: copyAddress")
+            != __("Same as billing address")
+  
+  .container-fluid(data-bind="visible: notCopyAddress, with: customer")
+    form.form-horizontal(data-bind="with: shipping_address")
+      .control-group
+        label.control-label= __("Address")
+        .controls
+          input(type="text", autocomplete="on", data-bind="value: str, event: { change: $parentContext.$parent.locationChanged }", required)
+          p(data-bind="validationMessage: str")
+      .control-group
+        label.control-label= __("City")
+        .controls
+          input(type="text", data-bind="value: city.name", required)
+          p(data-bind="validationMessage: city.name")
+      .control-group
+        label.control-label= __("Zip Code")
+        .controls
+          input(type="text", data-bind="value: city.zip", required)
+          p(data-bind="validationMessage: city.zip")
+      .control-group
+        label.control-label= __("Country")
+        .controls
+          input(type="text", data-bind="value: country.name", required)
+          p(data-bind="validationMessage: country.name")
+      .control-group
+        label.control-label= __("State")
+        .controls
+          input(type="text", data-bind="value: state.name", required)
+          p(data-bind="validationMessage: state.name")
+  hr
+  .container-fluid
+    a.btn.btn-large.btn-success(data-bind="click: updateInfo")= __("Update")

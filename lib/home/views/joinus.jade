@@ -1,0 +1,47 @@
+extends ../../views/layouts/main
+
+append css
+  != CDN("/stylesheets/app/joinus.css")
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/home/joinusInit.js")
+  
+block content
+  .container.well
+    .row-fluid.text-center
+      h1.title26.blue= __("Sell With ")
+        != CDN("/images/farmsharesbluelogo.png",{ 'class' : 'text-logo'})
+    .row-fluid
+      .span8
+        h2.title18(style="margin-bottom: 40px;")= __("We want to work with farms that are commited to high quality foods grown in a sustainable way, and treat the producers we work with as partners.")
+        h1.title24(style="margin-bottom: 40px;")= __("We want to support your farm and busines's growth every step of the way.")
+      .span4
+        != CDN("/images/sellwithus01.png")
+    .row-fluid
+      p.title18(style="margin-bottom: 30px;")= __("In Chile we currently have wholesaling relationships with several farms and run a vertically-itegrated retail and distribution service, in the US and Ireland we are selling without inventory for a small commission, detailed below:")
+    .row-fluid.inverted
+      .span6.text-right
+        .title18.white= __("Commission")
+        .title14.white 5%
+        .title14.white 4.5%
+        .title14.white 4%
+        .title14.white 3.5%
+        .title14.white 3%
+        .title14.white 2.5%
+        .title14.white 2%
+      .span6
+        .title18.white= __("Annual Sales")
+        .title14.white &lt;$5,000
+        .title14.white $5,001 to $10,000
+        .title14.white $10,001 to $20,000 
+        .title14.white $20,001 to $50,000
+        .title14.white $50,000 to $100,000
+        .title14.white $100,001 to $200,000
+        .title14.white &gt;$200,000  
+    .row-fluid
+      .span4
+        != CDN("/images/sellwithus02.png")
+      .span8
+        p.title18(style="margin-top: 90px;")= __("Please contact us for more information: ")
+          a(href="mailto:support@farmshares.com") support@farmshares.com
+    

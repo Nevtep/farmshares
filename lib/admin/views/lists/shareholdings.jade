@@ -1,0 +1,17 @@
+.span12(data-bind="foreach: shareholdings") 
+  .row-fluid
+    table.table.table-striped 
+      caption(data-bind="text: farm.name")  
+      thead
+        tr      
+          th(colspan="2")= __("Share description")
+          th= __("Quantity")
+          th= __("Subscription")
+          th= __("Next Delivery")
+      tbody(data-bind="foreach: skus")
+        tr
+          td
+          td(data-bind="text: share.name")
+          td(data-bind="text: quantity")
+          td(data-bind="text: subscription.name")
+          td(data-bind="text: delivery.timeframe.begin")

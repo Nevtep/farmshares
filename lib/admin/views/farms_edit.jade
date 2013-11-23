@@ -1,0 +1,33 @@
+extends layouts/admin
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/admin/farmsEditInit.js")
+  
+block inner
+  input#farm-name(type="hidden", value="#{locals.farm}")
+  
+  #farm-form(data-bind="with: farmForm")
+    include forms/farm
+  
+  section.row-fluid#skus
+    h3= __("Store Keeping Units")
+    a.btn.btn-primary#add-sku(href="#sku-form", role="button", data-toggle="modal", data-bind="click: skuForm.createSKU" )= __("Create SKU")
+    #sku-form.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="sku-form-header", aria-hidden="true", data-bind="with: skuForm")
+      include forms/sku
+    #sku-list(data-bind="with: farmForm.farmData")
+      // ko when: ready
+      include lists/skus
+      // /ko
+  section.row-fluid
+    legend= __("Photo Gallery")
+    include forms/gallery_add            
+    include forms/gallery_edit
+  section.row-fluid
+    .span4.offset5
+      button.btn-large.btn-primary#save(data-bind="click: farmForm.updateFarm")= __("Save Farm")
+    #progress-dialog.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="progress-header", aria-hidden="true")
+      .modal-header
+        h3#progress-header= __("Saving Farm...")
+      .modal-body
+        .progress.progress-success.progress-striped.active(aria-valuemin="0", aria-valuemax="100", aria-valuenow="0")
+          .bar(data-bind="style: { width: farmForm.saveStatus.percent() + '%' }")
