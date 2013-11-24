@@ -21,7 +21,6 @@ require(["jquery", "knockout", "checkoutPageVM", "stripe", "simpleCart", "google
     // Bind viewmodel
     var checkoutVM = new checkoutPage();
     ko.applyBindings(checkoutVM);
-
     
     $(".item-title").ellipsis();
         

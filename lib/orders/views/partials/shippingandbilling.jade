@@ -1,4 +1,4 @@
-.row-fluid
+.row-fluid(data-bind="when: ready")
   .span6
     h2= __("Billing Address")
     address(data-bind="with: billing_address")

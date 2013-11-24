@@ -17,7 +17,7 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       });
       self.confirmedAddress = ko.observable(false);
       self.accountReady.subscribe(function(confirm) {        
-          self.confirmedAddress(self.addressValid());
+        self.confirmedAddress(self.addressValid());
       });
       
       self.editingAddress = ko.computed(function () {
@@ -55,7 +55,7 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
         return self.timeframeStart().toLocaleDateString();
       })
       
-      self.paymentMethod = ko.observable(2);
+      self.paymentMethod = ko.observable("2");
       self.cardbrand = ko.observable();
       self.cardnumber = ko.observable();
       self.cardExpirationMonth = ko.observable();

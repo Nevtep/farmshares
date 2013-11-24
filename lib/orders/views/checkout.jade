@@ -32,7 +32,7 @@ block content
             #signin.section-content
               include ../../auth/views/partials/loginorregister          
   
-        .section(data-bind="when: accountReady")
+        .section
           .navbar
             .navbar-inner
               a.heading.title26.blue.bold(href="#",data-toggle="collapse", data-target="#addresses")= __("2. Shipping and Billing")
@@ -48,7 +48,7 @@ block content
             // ko with: account
             include partials/shippingandbilling
             // /ko
-        .section(data-bind="when: accountReady")
+        .section
           .navbar
             .navbar-inner
               a.heading.title26.blue.bold(href="#",data-toggle="collapse", data-target="#order")= __("3. Place Order")
