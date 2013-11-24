@@ -1,8 +1,8 @@
 require(["jquery", "knockout", "checkoutPageVM", "stripe", "simpleCart", "googleAnalytics", "crazyEgg", "jquery.ellipsis"], function ($, ko, checkoutPage, Stripe, simpleCart, ga) {
   $(function () {
     // Configure Stripe
-    //Stripe.setPublishableKey('pk_live_zHUvBd7yf07wnfnU6oF6CU7H');
-    Stripe.setPublishableKey('pk_test_9DAbo6ovvgf44ZlRiADGc5Vm');
+    Stripe.setPublishableKey('pk_live_zHUvBd7yf07wnfnU6oF6CU7H');
+    //Stripe.setPublishableKey('pk_test_9DAbo6ovvgf44ZlRiADGc5Vm');
 
     // Configure Simplecart
     simpleCart({
