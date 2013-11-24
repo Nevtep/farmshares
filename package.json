@@ -12,6 +12,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
+    "postinstall": "npm run-script geoip-lite updatedb",
     "start": "node app.js"
   },
   "dependencies": {
