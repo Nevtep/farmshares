@@ -1,9 +1,8 @@
 .span12(data-bind="foreach: deliveries") 
   .row-fluid.well
     .row-fluid
-      h5.pull-right(data-bind="text: timeframe.begin")
+      h4.pull-right(data-bind="text: timeframe.begin.slice(0,timeframe.begin.indexOf('T')) + ' ' + timeframe.begin.slice(timeframe.begin.indexOf('T')+1,timeframe.begin.lastIndexOf(':'))")
     .well
-      h3= __("Customer Info")
       .row-fluid      
         .span4
           label= __("Customer Name:")
