@@ -4,12 +4,12 @@ define(['knockout', 'jquery'], function (ko, $) {
 
         self.deliveries = ko.observableArray();
 
-        self.load = function (accountId) {
-            return $.getJSON("/order/dispatch/delivery/plan/" + accountId, function (deliveries) {
+        self.load = function (filters) {
+            return $.post("/order/dispatch/deliveries/", filters,function (deliveries) {
                 self.deliveries(deliveries);
-            });
+            }, 'json');
         }
 
-        self.load(ui.accountId);
+        self.load(ui.filters);
     }
 });

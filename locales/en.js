@@ -237,5 +237,16 @@
 	"": "",
 	"Share": "Share",
 	"Item Added!": "Item Added!",
-	"Add photo": "Add photo"
+	"Add photo": "Add photo",
+	"Dispatch": "Dispatch",
+	"Customer Name:": "Customer Name:",
+	"Customer Email:": "Customer Email:",
+	"Customer Phone:": "Customer Phone:",
+	"Customer Address:": "Customer Address:",
+	"Customer Info": "Customer Info",
+	"Orders": "Orders",
+	"Product Name:": "Product Name:",
+	"Product Amount:": "Product Amount:",
+	"Product Quantity:": "Product Quantity:",
+	"Product Type:": "Product Type:"
 }

@@ -1,19 +1,56 @@
 .span12(data-bind="foreach: deliveries") 
-  .row-fluid
-    table.table.table-striped 
-      caption(data-bind="text: delivery.timeframe.begin.toLocaleString()") 
-      caption(data-bind="text: delivery.info.customer.shipping_address.str") 
-      tbody(data-bind="foreach:skus")
-        tr
-          td
-            table.table.table-striped 
-              caption(data-bind="text: farm.name") 
-              thead
-                tr          
-                  th(colspan="2")= __("Share description")
-                  th= __("Quantity")          
-              tbody(data-bind="foreach: shares")
-                tr
-                  td(data-bind="text: share.photo")
-                  td(data-bind="text: share.name")
-                  td(data-bind="text: quantity")
+  .row-fluid.well
+    .row-fluid
+      h4.pull-right(data-bind="text: timeframe.begin.slice(0,timeframe.begin.indexOf('T')) + ' ' + timeframe.begin.slice(timeframe.begin.indexOf('T')+1,timeframe.begin.lastIndexOf(':'))")
+    .well
+      .row-fluid      
+        .span4
+          label= __("Customer Name:")
+          span(data-bind="text: info.customer.name.full")
+        .span4        
+          label= __("Customer Email:")
+          span(data-bind="text: info.customer.email")
+        .span4
+          label= __("Customer Phone:")
+          | (+
+          span(data-bind="text: info.customer.shipping_address.telephone.country_code")
+          | ) 
+          span(data-bind="text: info.customer.shipping_address.telephone.local_code")
+          | -
+          span(data-bind="text: info.customer.shipping_address.telephone.number")
+      .row-fluid
+        .span12
+          label= __("Customer Address:")
+          span(data-bind="text: info.customer.shipping_address.str")
+    .row-fluid
+      h3= __("Orders")
+    .row-fluid(data-bind="foreach: orders")
+      h5 #
+        span(data-bind="text: _id")
+        .pull-right
+          span(data-bind="text: payments[payments.length -1].currency_code")
+          |  
+          span(data-bind="text: payments[payments.length -1].amount")
+          |  
+          span(data-bind="text: payments[payments.length -1].status[payments[payments.length -1].status.length -1].name")
+      .well
+        .row-fluid
+          .span3
+            label= __("Product Name:")
+          .span3        
+            label= __("Product Amount:")
+          .span3
+            label= __("Product Quantity:")
+          .span3
+            label= __("Product Type:")  
+        // ko foreach: products
+        .row-fluid
+          .span3        
+            span(data-bind="text: name")
+          .span3
+            span(data-bind="text: amount")
+          .span3
+            span(data-bind="text: quantity")
+          .span3
+            span(data-bind="text: type")
+        // /ko
