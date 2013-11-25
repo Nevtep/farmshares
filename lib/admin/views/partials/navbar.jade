@@ -28,6 +28,15 @@
               a(href="/admin/users/list")
                 i.icon-list
                 | #{__("List Users")}
+         li.dropdown
+          a.dropdown-toggle(href="#", data-toggle="dropdown")
+            | #{__("Dispatch")}
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href="/admin/dispatch/deliveries")
+                i.icon-road
+                | #{__("Deliveries")}
     else
       a.brand(href="/login")
         span.label= __("Login")
