@@ -63,7 +63,7 @@
 - var geolocationVM = CDN("/javascripts/viewmodels/core/geolocationVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 //- Dispatch
 - var wholesalesDispatchVM = CDN("/javascripts/viewmodels/dispatch/wholesalesVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
-- var deliveryPlanDispatchVM = CDN("/javascripts/viewmodels/dispatch/deliveryPlanVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var dispatchDeliveriesVM = CDN("/javascripts/viewmodels/dispatch/deliveriesVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var deliveryScheduleDispatchVM = CDN("/javascripts/viewmodels/dispatch/deliveryScheduleVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var shareholdingsDispatchVM = CDN("/javascripts/viewmodels/dispatch/shareholdingsVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 script
@@ -136,7 +136,7 @@ script
       "geolocationVM" : "#{geolocationVM}",
       // Dispatch
       "wholesalesDispatchVM" : "#{wholesalesDispatchVM}",
-      "deliveryPlanDispatchVM" : "#{deliveryPlanDispatchVM}",
+      "dispatchDeliveriesVM" : "#{dispatchDeliveriesVM}",
       "deliveryScheduleDispatchVM" : "#{deliveryScheduleDispatchVM}",
       "shareholdingsDispatchVM" : "#{shareholdingsDispatchVM}"
     },
