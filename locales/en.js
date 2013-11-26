@@ -248,5 +248,6 @@
 	"Product Name:": "Product Name:",
 	"Product Amount:": "Product Amount:",
 	"Product Quantity:": "Product Quantity:",
-	"Product Type:": "Product Type:"
+	"Product Type:": "Product Type:",
+	"Payment Method": "Payment Method"
 }

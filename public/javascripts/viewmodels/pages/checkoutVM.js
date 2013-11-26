@@ -55,7 +55,11 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
         return self.timeframeStart().toLocaleDateString();
       })
       
-      self.paymentMethod = ko.observable("2");
+      self.paymentMean = ko.observable("credit");
+      self.payByCredit = ko.computed(function() {
+        return self.paymentMean() == "credit";
+      });
+      self.paymentMethod = ko.observable("3");
       self.cardbrand = ko.observable();
       self.cardnumber = ko.observable();
       self.cardExpirationMonth = ko.observable();
@@ -122,44 +126,59 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       self.checkout = function (data, evt) {
         var timeFrame = new Date(self.timeframeStart().getTime());
         timeFrame.setHours(timeFrame.getHours() + 2);
-        if (self.account.billing_address.country.name().toLowerCase() == "chile") {
-          simpleCart.bind('beforeCheckout', function (data) {
-            data.customer_email = self.account.email();
-            data.customer_delivery_from = self.timeframeStart().getTime();
-            data.customer_delivery_to = timeFrame.getTime();
-            data.customer_billingaddress = self.account.billing_address.toJSON();
-            data.customer_shippingaddress = self.account.shipping_address.toJSON();
-            data.payment_provider = "PuntoPagos";
-            data.currency = "clp";
-            data.payment_method = self.paymentMethod();
-            data.payment_total = simpleCart.total();
-          });
-          
-          simpleCart.checkout();
-        } else {
-          Stripe.card.createToken({
-            number: self.cardnumber(),
-            cvc: self.cvc(),
-            exp_month: self.cardExpirationMonth(),
-            exp_year: self.cardExpirationYear()
-          }, function (status, response) {
-            if (response.error) throw response.error;
-            
-            
+        if(self.paymentMean == "credit") {
+          if (self.account.billing_address.country.name().toLowerCase() == "chile") {
             simpleCart.bind('beforeCheckout', function (data) {
               data.customer_email = self.account.email();
               data.customer_delivery_from = self.timeframeStart().getTime();
               data.customer_delivery_to = timeFrame.getTime();
               data.customer_billingaddress = self.account.billing_address.toJSON();
               data.customer_shippingaddress = self.account.shipping_address.toJSON();
-              data.payment_provider = "Stripe";
-              data.currency = "usd";
-              data.payment_stripeToken = response.id;
+              data.payment_provider = "PuntoPagos";
+              data.currency = "clp";
+              data.payment_method = self.paymentMethod();
               data.payment_total = simpleCart.total();
             });
             
             simpleCart.checkout();
-          });
+          } else {
+            Stripe.card.createToken({
+              number: self.cardnumber(),
+              cvc: self.cvc(),
+              exp_month: self.cardExpirationMonth(),
+              exp_year: self.cardExpirationYear()
+            }, function (status, response) {
+              if (response.error) throw response.error;
+              
+              
+              simpleCart.bind('beforeCheckout', function (data) {
+                data.customer_email = self.account.email();
+                data.customer_delivery_from = self.timeframeStart().getTime();
+                data.customer_delivery_to = timeFrame.getTime();
+                data.customer_billingaddress = self.account.billing_address.toJSON();
+                data.customer_shippingaddress = self.account.shipping_address.toJSON();
+                data.payment_provider = "Stripe";
+                data.currency = "usd";
+                data.payment_stripeToken = response.id;
+                data.payment_total = simpleCart.total();
+              });
+              
+              simpleCart.checkout();
+            });
+          };
+        } else {
+          simpleCart.bind('beforeCheckout', function (data) {
+              data.customer_email = self.account.email();
+              data.customer_delivery_from = self.timeframeStart().getTime();
+              data.customer_delivery_to = timeFrame.getTime();
+              data.customer_billingaddress = self.account.billing_address.toJSON();
+              data.customer_shippingaddress = self.account.shipping_address.toJSON();
+              data.payment_provider = "Cash";
+              data.currency = self.account.billing_address.country.name().toLowerCase() == "chile" ? "clp" : "usd";
+              data.payment_total = simpleCart.total();
+            });
+            
+            simpleCart.checkout();
         };
       };
     };
