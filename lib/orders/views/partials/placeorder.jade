@@ -16,15 +16,14 @@ form.form-horizontal
 .muted= __("WILL DELIVER ON: ")
   span.blue.bold(data-bind="text: nextDelivery")
 h2= __("Payment Method")
-form.form-inline
-  .span5.offset1
+form.form-horizontal
+  .offset1
     label.radio
       input(type="radio", name="payment_method", value="cash", data-bind="checked: paymentMean")
-      | Pay by Cash
-  .span6
-    label.checkbox
+      | Cash on Delivery
+    label.radio
       input(type="radio", name="payment_method", value="credit", data-bind="checked: paymentMean")
-      | Pay by Credit
+      | Credit Card
 .row-fluid(data-bind="visible: payByCredit")
   h2= __("Payment Options")
   .container-fluid(data-bind="when: accountReady")
