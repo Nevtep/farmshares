@@ -27,12 +27,15 @@
     .row-fluid(data-bind="foreach: orders")
       h5 #
         span(data-bind="text: _id")
-        .pull-right
+        .pull-right(data-bind="css: { orange : payments[payments.length -1].status[payments[payments.length -1].status.length -1].name == 'pending', green : payments[payments.length -1].status[payments[payments.length -1].status.length -1].name == 'charged'}")
           span(data-bind="text: payments[payments.length -1].currency_code")
           |  
           span(data-bind="text: payments[payments.length -1].amount")
           |  
           span(data-bind="text: payments[payments.length -1].status[payments[payments.length -1].status.length -1].name")
+          != __(" via ")
+          span(data-bind="text: payments[payments.length -1].provider.name")
+          
       .well
         .row-fluid
           .span3
