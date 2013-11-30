@@ -1,3 +1,6 @@
+#farmCarousel .carousel-control {
+  z-index: 10;
+}
 #farmCarousel .carousel-inner {
   height: 460px;
 }
