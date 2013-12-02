@@ -5,41 +5,41 @@ html(lang="en")
     block title
       title Base Template    
     
-    block css
-      != CDN("/stylesheets/libs/bootstrap.css")
-      != CDN("/stylesheets/libs/bootstrap-responsive.css")
-      != CDN("/stylesheets/app/site.css")
-      != CDN("/stylesheets/app/footer.css")
-      != CDN("/stylesheets/app/fonts.css")
       
   body(style="max-width:611px;")
     div(style="background-color: rgb(255, 255, 255) !important;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 837px;line-height: 20px;margin-bottom: -60px;margin-left: 0px;margin-right: 0px;margin-top: 0px;min-height: 100%;")
       div
         != CDN("/images/confirmation-email-header.png")
       div(style="margin-left:20px;margin-right:20px")
-        span(style="color: rgb(10, 119, 182);display: block;font-family: 'Lucida Grande', sans-serif;font-size: 26px;font-weight: bold;height: 40px;line-height: 40px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 10px;") #{__("Congratulations")} #{account.name.first}
+        span(style="color: rgb(10, 119, 182);display: block;font-family: 'Lucida Grande', sans-serif;font-size: 26px;font-weight: bold;height: 40px;line-height: 40px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 10px;") #{__("Congratulations")} #{customer.name.first}
         div(style="display: block;height: 43px;line-height: 20px;")
           div(style="box-sizing: border-box;display: block;float: left;height: 30px;line-height: 20px;margin-left: 0px;min-height: 30px;width: 48.717948717948715%;")
-            span(style="color: rgb(204, 102, 0);display: inline;font-family: 'Lucida Grande', sans-serif;font-size: 18px;height: auto;line-height: 24px;top:9px;position: relative;")= __("Order summary")
+            span(style="color: rgb(204, 102, 0);display: inline;font-family: 'Lucida Grande', sans-serif;font-size: 18px;height: auto;line-height: 24px;top:18px;position: relative;")= __("Order summary")
           div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: Geneva, sans-serif;font-size: 14px;height: 43px;line-height: 20px;margin-left: 2.564102564102564%;min-height: 30px;text-align: right;width: 48.717948717948715%;")
-            span(style="color: rgb(204, 204, 204);display: inline;font-family: Geneva, sans-serif;font-size: 12px;height: auto;line-height: 18px;text-align: right;width: auto;")= __("Share:")
-            a(href="#")
-              != CDN("/images/facebook44.png")
-            a(href="#")
-              != CDN("/images/twitter44.png")
-            a(href="#")
-              != CDN("/images/google44.png")
+            span(style="color: rgb(51, 51, 51);display: inline;font-family: Geneva, sans-serif;font-size: 12px;height: auto;line-height: 18px;text-align: right;width: auto;")= __("Share: ")
+            a(href="#",style="top: 18px;position: relative;")
+              != CDN("/images/facebook44.png", {"style":"width:24px;height:24px;vertical-align: bottom;"})
+            a(href="#",style="top: 18px;position: relative;")
+              != CDN("/images/twitter44.png", {"style":"width:24px;height:24px;vertical-align: bottom;"})
+            a(href="#",style="top: 18px;position: relative;")
+              != CDN("/images/google44.png", {"style":"width:24px;height:24px;vertical-align: bottom;"})
         hr(style="border-bottom-color: rgb(255, 255, 255);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(238, 238, 238);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 0px;line-height: 20px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")
-        div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 54px;line-height: 20px;")
-          div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 54px;line-height: 20px;margin-left: 0px;min-height: 30px;width: 65.81196581196582%;")
-            div(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Placed on ")
-            div(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Will deliver on ")
-            div(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Shipping address")
+        div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 90px;line-height: 20px;")
+          div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 54px;line-height: 20px;margin-left: 0px;min-height: 30px;width: 60%;")
+            div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Placed on ")
+              span #{order.placed}
+            div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Will deliver on ")
+              span #{deliveryDate.begin.toLocaleDateString()} - #{deliveryDate.begin.getHours()} #{__("to")} #{deliveryDate.end.getHours()}#{__("pm")} 
+            div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Shipping address: ")
+              br
+              span #{customer.shipping_address.address.street.main.name} #{customer.shipping_address.address.street.main.number}, #{customer.shipping_address.city.name}
+              br
+              span #{customer.shipping_address.state.name}, #{customer.shipping_address.country.name}
           div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 36px;line-height: 20px;margin-left: 2.564102564102564%;min-height: 30px;width: 31.623931623931625%;")
-            div(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Order #")
-            div(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Recipient")
-        hr(style="border-bottom-color: rgb(255, 255, 255);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(238, 238, 238);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 0px;line-height: 20px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")
-        each farm in farms
+            div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;") #{__("Order #")} #{order.id}
+            div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;") #{__("Recipient")} #{customer.name.first} #{customer.name.last}            
+        hr(style="border-bottom-color: rgb(255, 255, 255);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(238, 238, 238);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 0px;line-height: 20px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")        
+        each farm in summary
           div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-top: 10px;")
             div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-left: 0px;min-height: 30px;width: 74.35897435897436%;")
               span(style="color: rgb(10, 119, 182);display: inline;font-family: 'Lucida Grande', sans-serif;font-size: 22px;font-weight: bold;height: auto;line-height: 20px;text-transform: uppercase;") #{farm.name} 
@@ -53,31 +53,38 @@ html(lang="en")
               div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 40px;line-height: 20px;margin-left: 0px;min-height: 30px;width: 74.35897435897436%;")
                 div(style="color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 40px;line-height: 20px;")
                   img(src="#{product.photo}",style="border-bottom-color: rgb(51, 51, 51);border-bottom-left-radius: 6px;border-bottom-right-radius: 6px;border-bottom-style: none;border-bottom-width: 0px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(51, 51, 51);border-top-left-radius: 6px;border-top-right-radius: 6px;border-top-style: none;border-top-width: 0px;color: rgb(51, 51, 51);display: inline;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 40px;line-height: 20px;margin-right: 5px;max-width: 100%;vertical-align: middle;width: 40px;")
-                div(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;")= __("{product}")
-                div(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;")= __("Subscription")
+                div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;") 
+                  span(style="font-weight:bold") #{product.description}
+                  |  - 
+                  span #{product.amount}
+                div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;") #{__("Subscription:")} #{product.subscription}
               div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-left: 2.564102564102564%;min-height: 30px;width: 23.076923076923077%;")
                 div(style="box-sizing: border-box;color: rgb(0, 0, 0);display: block;float: left;font-family: Geneva, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-left: 0px;min-height: 30px;text-align: right;width: 48.717948717948715%;") #{product.quantity}
                 div(style="box-sizing: border-box;color: rgb(0, 0, 0);display: block;float: left;font-family: Geneva, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-left: 2.564102564102564%;min-height: 30px;text-align: right;width: 48.717948717948715%;") #{product.total}
-          hr(style="border-bottom-color: rgb(204, 204, 204);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(204, 204, 204);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 1px;line-height: 20px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 10px;")
+          hr(style="border-bottom-color: rgb(51, 51, 51);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(51, 51, 51);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 1px;line-height: 20px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 10px;")
           div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 30px;line-height: 20px;")
             div(style="box-sizing: border-box;color: rgb(0, 0, 0);display: block;float: left;font-family: Geneva, sans-serif;font-size: 14px;font-weight: bold;height: 30px;line-height: 18px;margin-left: 0px;min-height: 30px;text-align: right;text-transform: uppercase;width:100%;") #{farm.name} 
               != __(" farm total:")
               | #{farm.total}
         div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 82px;line-height: 20px;width: 571px;")
-          div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: right;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 82px;line-height: 20px;margin-left: 0px;min-height: 30px;width: 180.5625px;")
+          div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: right;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 82px;line-height: 20px;margin-left: 0px;min-height: 30px;width:200px;")
             hr(style="border-bottom-color: rgb(255, 255, 255);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(238, 238, 238);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 0px;line-height: 20px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")
             div(style="color: rgb(0, 0, 0);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;text-align: right;")= __("Total:")
+              span  #{order.currency} #{order.total}
             div(style="color: rgb(0, 0, 0);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;text-align: right;")= __("Shipping:")
+              span  #{order.currency} #{order.shipping}
             div(style="color: rgb(0, 0, 0);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;text-align: right;")= __("Tax:")
+              span  #{order.currency} #{order.tax}
             hr(style="border-bottom-color: rgb(255, 255, 255);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(238, 238, 238);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 0px;line-height: 20px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")
-            span(style="color: rgb(10, 119, 182);display: inline;font-family: 'Lucida Grande', sans-serif;font-size: 14px;font-weight: bold;height: auto;line-height: 24px;text-transform: uppercase;")= __("Order Total:")
+            div(style="color: rgb(10, 119, 182);display: inline;font-family: 'Lucida Grande', sans-serif;font-size: 14px;font-weight: bold;height: auto;line-height: 24px;text-transform: uppercase;float:right;")= __("Order Total:")
+              span  #{order.currency} #{order.grandTotal}
         br
         hr(style="border-bottom-color: rgb(255, 255, 255);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(238, 238, 238);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 0px;line-height: 20px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")
         br
-        p(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")
+        p(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")
           span= __("Thank you for your purchase, if you want to read more about us, ") 
           a(href="http://blog.farmshares.com/",style="color: rgb(0, 136, 204);cursor: auto;display: inline;font-family: Geneva, sans-serif;font-size: 12px;height: auto;line-height: 18px;text-decoration: none solid rgb(0, 136, 204);")= __("visit our blog")
-        p(style="color: rgb(204, 204, 204);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 0px;") #{__("The FarmShares Team")}
+        p(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 0px;") #{__("The FarmShares Team")}
       div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 60px;line-height: 20px;")
     div(style="background-color: rgb(59, 59, 59);color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 60px;line-height: 20px;")
       div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 100px;line-height: 20px;")

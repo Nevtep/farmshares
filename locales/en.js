@@ -266,5 +266,11 @@
 	"Shipping:": "Shipping:",
 	"Tax:": "Tax:",
 	"Thank you for your purchase, if you want to read more about us, ": "Thank you for your purchase, if you want to read more about us, ",
-	" Call us": " Call us"
+	" Call us": " Call us",
+	"Share: ": "Share: ",
+	"Shipping address:": "Shipping address:",
+	"Shipping address: ": "Shipping address: ",
+	"to": "to",
+	"pm": "pm",
+	"Subscription:": "Subscription:"
 }
