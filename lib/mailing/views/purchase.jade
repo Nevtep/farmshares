@@ -29,12 +29,13 @@ html(lang="en")
             div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Placed on ")
               span #{order.placed}
             div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Will deliver on ")
-              span #{deliveryDate.begin.toLocaleDateString()} - #{deliveryDate.begin.getHours()} #{__("to")} #{deliveryDate.end.getHours()}#{__("pm")} 
+              br
+              span(style="font-weight:bold") #{deliveryDate.begin.toLocaleDateString()} - #{deliveryDate.begin.getHours()} #{__("to")} #{deliveryDate.end.getHours()}#{__("pm")} 
             div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;")= __("Shipping address: ")
               br
-              span #{customer.shipping_address.address.street.main.name} #{customer.shipping_address.address.street.main.number}, #{customer.shipping_address.city.name}
+              span(style="font-weight:bold") #{customer.shipping_address.address.street.main.name} #{customer.shipping_address.address.street.main.number}, #{customer.shipping_address.city.name}
               br
-              span #{customer.shipping_address.state.name}, #{customer.shipping_address.country.name}
+              span(style="font-weight:bold") #{customer.shipping_address.state.name}, #{customer.shipping_address.country.name}
           div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 36px;line-height: 20px;margin-left: 2.564102564102564%;min-height: 30px;width: 31.623931623931625%;")
             div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;") #{__("Order #")} #{order.id}
             div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;width: 375.78125px;") #{__("Recipient")} #{customer.name.first} #{customer.name.last}            
@@ -60,14 +61,14 @@ html(lang="en")
                 div(style="color: rgb(51, 51, 51);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;") #{__("Subscription:")} #{product.subscription}
               div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: left;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-left: 2.564102564102564%;min-height: 30px;width: 23.076923076923077%;")
                 div(style="box-sizing: border-box;color: rgb(0, 0, 0);display: block;float: left;font-family: Geneva, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-left: 0px;min-height: 30px;text-align: right;width: 48.717948717948715%;") #{product.quantity}
-                div(style="box-sizing: border-box;color: rgb(0, 0, 0);display: block;float: left;font-family: Geneva, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-left: 2.564102564102564%;min-height: 30px;text-align: right;width: 48.717948717948715%;") #{product.total}
+                div(style="box-sizing: border-box;color: rgb(0, 0, 0);display: block;float: left;font-family: Geneva, sans-serif;font-size: 14px;height: 30px;line-height: 20px;margin-left: 2.564102564102564%;min-height: 30px;text-align: right;width: 48.717948717948715%;") #{order.currency} #{product.total}
           hr(style="border-bottom-color: rgb(51, 51, 51);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(51, 51, 51);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 1px;line-height: 20px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 10px;")
           div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 30px;line-height: 20px;")
             div(style="box-sizing: border-box;color: rgb(0, 0, 0);display: block;float: left;font-family: Geneva, sans-serif;font-size: 14px;font-weight: bold;height: 30px;line-height: 18px;margin-left: 0px;min-height: 30px;text-align: right;text-transform: uppercase;width:100%;") #{farm.name} 
               != __(" farm total:")
-              | #{farm.total}
+              | #{order.currency} #{farm.total}
         div(style="color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 82px;line-height: 20px;width: 571px;")
-          div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: right;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 82px;line-height: 20px;margin-left: 0px;min-height: 30px;width:200px;")
+          div(style="box-sizing: border-box;color: rgb(51, 51, 51);display: block;float: right;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 82px;line-height: 20px;margin-left: 0px;min-height: 30px;width:300px;")
             hr(style="border-bottom-color: rgb(255, 255, 255);border-bottom-style: solid;border-bottom-width: 1px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(51, 51, 51);border-left-style: none;border-left-width: 0px;border-right-color: rgb(51, 51, 51);border-right-style: none;border-right-width: 0px;border-top-color: rgb(238, 238, 238);border-top-style: solid;border-top-width: 1px;color: rgb(51, 51, 51);display: block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;height: 0px;line-height: 20px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;margin-top: 0px;")
             div(style="color: rgb(0, 0, 0);display: block;font-family: Geneva, sans-serif;font-size: 12px;height: 18px;line-height: 18px;text-align: right;")= __("Total:")
               span  #{order.currency} #{order.total}
