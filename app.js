@@ -129,7 +129,7 @@ if(process.env.NODE_ENV === "production")
 	  , hostname: 'www.farmshares.com'
 	  , port: 443
 	  , ssl: true
-	  , production: false
+	  , production: true
 	  , logger: winston.info
     };
 else if (process.env.NODE_ENV === "staging")
@@ -143,7 +143,7 @@ else if (process.env.NODE_ENV === "staging")
 	  , hostname: 'staging.farmshares.com'
 	  , port: 80
 	  , ssl: false
-	  , production: false
+	  , production: true
 	  , logger: winston.info
     };
 else	
