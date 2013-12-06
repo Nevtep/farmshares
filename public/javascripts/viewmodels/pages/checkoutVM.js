@@ -46,8 +46,9 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       self.deliveryDay = ko.observable(6);
       self.deliveryTimeframe = ko.observable(12);
       self.timeframeStart  = ko.computed(function () {
-        var next = new Date();
-        next.setDate(next.getDate() + (parseInt(self.deliveryDay()) + (7 - next.getDay())) % 7);
+        var now = new Date();
+        var close = new Date(now.getTime() - (1000*60*60*8));
+        var next = close.getDay() < 5 ? new Date(close.getTime() + ( (parseInt(self.deliveryDay()) - close.getDay()) * (1000 * 60 * 60 * 24))) : new Date(close.getTime() + ( (parseInt(self.deliveryDay()) + 7 - close.getDay()) * (1000 * 60 * 60 * 24)));
         next.setHours(self.deliveryTimeframe(),0,0,0);
         return next;
       })
