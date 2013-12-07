@@ -1,5 +1,9 @@
 form(action="/register", method="POST")
   fieldset    
+    label.muted= __("First Name")
+    input.input-block-level(type="text", name="first_name",id="first_name", required)
+    label.muted= __("Last Name")
+    input.input-block-level(type="text", name="last_name",id="last_name", required)
     label.muted= __("Email")
     input.input-block-level(type="text", name="email",id="email", required)
     label.muted= __("Choose password")
