@@ -6,12 +6,4 @@ a.btn.btn-large.btn-success(href="#registerModal", role="button", data-toggle="m
     button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
     h3#registerModalLabel= __("Create your Account")
   .modal-body
-    include register  
-h2.title24.light= __("OR")
-h5.muted= __("Sign up with:")
-a(href="/auth/facebook")
-  != CDN("/images/facebook44.png")
-//- a(href="/auth/twitter")
-//-   != CDN("/images/twitter44.png")
-a(href="/auth/google")
-  != CDN("/images/google44.png")
+    include register
