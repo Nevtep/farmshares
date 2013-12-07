@@ -143,7 +143,7 @@ else if (process.env.NODE_ENV === "staging")
 	  , hostname: 'staging.farmshares.com'
 	  , port: 80
 	  , ssl: false
-	  , production: false
+	  , production: true
 	  , logger: winston.info
     };
 else	
@@ -154,8 +154,8 @@ else
     , bucket: process.env.S3BUCKET
     , key: process.env.AWSKEY
     , secret: process.env.AWSSECRET
-    , hostname: 'farmshares.com'
-    , port: 80
+    , hostname: process.env.HOSTNAME
+    , port: process.env.PORT
     , ssl: false
     , production: false
     , logger: winston.info 
