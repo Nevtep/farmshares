@@ -12,7 +12,6 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "postinstall": "node node_modules/geoip-lite/scripts/updatedb.js",
     "start": "node app.js"
   },
   "dependencies": {
