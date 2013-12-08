@@ -43,7 +43,29 @@ exports.findOrCreate = function(provider, promise, session, accessToken, accessT
   // Joins profiles together under the same account  
   var updateProfiles = function(account) 
   {    
-      promise.fulfill(account);
+    account.profiles = account.profiles || new Array();        
+    var _ = require("underscore");
+    if(!_.any(account.profiles, function(profile){ return profile.provider == provider })) {
+      var newProfile = new require("auth").models.Profile({
+        provider : provider,
+        metadata : userMetadata
+      });
+      
+      account.profiles.push(newProfile);    
+      //save it
+      account.save(function(err, savedAccount) {
+        // if there is no error
+        if(!err) {        
+          winston.log("Saving in session the account with brand new profile", savedAccount);
+          // and fulfill the promise
+          promise.fulfill(savedAccount);
+        } else {
+          // otherwise return the errors
+          winston.error("Unable to save new account with new profile", err);
+          promise.fulfill(err.errors);
+        }
+      });
+    }
   }
   //Finds or creates and account.
   var findOrCreateAccount = function(err, account) {

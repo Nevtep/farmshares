@@ -272,5 +272,8 @@
 	"Shipping address: ": "Shipping address: ",
 	"to": "to",
 	"pm": "pm",
-	"Subscription:": "Subscription:"
+	"Subscription:": "Subscription:",
+	"Login or Register": "Login or Register",
+	"or": "or",
+	"Monday": "Monday"
 }

@@ -1,5 +1,10 @@
 .form-signin
   .row-fluid
+    .span12.text-center
+      h2.title24.light= __("Login or Register")
+      include ../forms/social
+      h5.muted.uppercase= __("or")
+  .row-fluid
     .span6
       include ../forms/signin
     .span5.offset1

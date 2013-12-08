@@ -43,7 +43,7 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
         self.confirmedAddress(false);
       };
       
-      self.deliveryDay = ko.observable(6);
+      self.deliveryDay = ko.observable(7);
       self.deliveryTimeframe = ko.observable(12);
       self.timeframeStart  = ko.computed(function () {
         var now = new Date();
