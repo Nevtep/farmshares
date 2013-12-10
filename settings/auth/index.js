@@ -17,14 +17,12 @@ if (process.env.NODE_ENV === "development") {
 everyauth.everymodule.findUserById(function (id, callback) {
   winston.info("Looking up account", id);
   Account.findById(id , callback);
-});
-
-var auth = require("./everyauth");
-
-everyauth.everymodule.handleLogout(function (req, res) {
+}).handleLogout(function (req, res) {
     req.logout();
     this.redirect(res, "/");
-});
+}).moduleTimeout(30000);
+
+var auth = require("./everyauth");
 
 // FACEBOOK LOGIN
 everyauth.facebook
