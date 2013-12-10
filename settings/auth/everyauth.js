@@ -65,6 +65,8 @@ exports.findOrCreate = function(provider, promise, session, accessToken, accessT
           promise.fulfill(err.errors);
         }
       });
+    } else {
+      promise.fulfill(account)
     }
   }
   //Finds or creates and account.

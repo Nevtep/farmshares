@@ -20,7 +20,7 @@ everyauth.everymodule.findUserById(function (id, callback) {
 }).handleLogout(function (req, res) {
     req.logout();
     this.redirect(res, "/");
-}).moduleTimeout(30000);
+});
 
 var auth = require("./everyauth");
 
