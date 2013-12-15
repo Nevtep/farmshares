@@ -58,6 +58,16 @@ app.configure(function () {
             url: mongoose.dbUrl
         })
     }));    
+    //Set session locale
+  app.use(function(req,res,next){
+    if(!req.query.lang && req.session.preferredLocale)
+      req.i18n.setLocale(req.session.preferredLocale);
+    else {
+      req.session.preferredLocale = req.i18n.getLocale();
+      req.session.save();
+    }
+    next();
+  });
     app.use(require('geolocation').middleware);
     app.use(everyauth.middleware());    
     //app.use(app.router);
