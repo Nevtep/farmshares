@@ -22,11 +22,17 @@
 - var jquery_ui = CDN("/javascripts/lib/jquery/jquery-ui-1.10.2.custom.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var jquery_ui_widget = CDN("/javascripts/lib/jquery/jquery.ui.widget.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var jquery_fileupload = CDN("/javascripts/lib/jquery/jquery.fileupload.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
-- var jquery_fileupload_fp = CDN("/javascripts/lib/jquery/jquery.fileupload-fp.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var jquery_fileupload_fp = CDN("/javascripts/lib/jquery/jquery.fileupload-process.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var jquery_fileupload_image = CDN("/javascripts/lib/jquery/jquery.fileupload-image.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var xml2json = CDN("/javascripts/lib/jquery/jquery.xml2json.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var ellipsis = CDN("/javascripts/lib/jquery/jquery.ellipsis.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var jquery_iframe_transport = CDN("/javascripts/lib/jquery/jquery.iframe-transport.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var bootstrap = CDN("/javascripts/lib/jquery/bootstrap.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var canvas_to_blob = CDN("/javascripts/lib/jquery/canvas-to-blob.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var load_image = CDN("/javascripts/lib/jquery/load-image.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var load_image_exif = CDN("/javascripts/lib/jquery/load-image-exif.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var load_image_ios = CDN("/javascripts/lib/jquery/load-image-ios.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var load_image_meta = CDN("/javascripts/lib/jquery/load-image-meta.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 //- libs
 - var simpleCart = CDN("/javascripts/lib/simplecart/simpleCart.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var itemgroups = CDN("/javascripts/lib/simplecart/simpleCart.itemgroups.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
@@ -94,11 +100,17 @@ script
       "jquery-ui" : "#{jquery_ui}",
       "jquery.ui.widget" : "#{jquery_ui_widget}",
       "jquery.fileupload" : "#{jquery_fileupload}",
-      "jquery.fileupload-fp" : "#{jquery_fileupload_fp}",
+      "jquery.fileupload-process" : "#{jquery_fileupload_fp}",
+      "jquery.fileupload-image" : "#{jquery_fileupload_image}",
       "jquery.iframe-transport" : "#{jquery_iframe_transport}",
       "bootstrap" : "#{bootstrap}",
       "jquery.xml2json" : "#{xml2json}",
       "jquery.ellipsis" : "#{ellipsis}",
+      "canvas-to-blob" : "#{canvas_to_blob}",
+      "load-image" : "#{load_image}",
+      "load-image-exif" : "#{load_image_exif}",
+      "load-image-ios" : "#{load_image_ios}",
+      "load-image-meta" : "#{load_image_meta}",
       // libs
       "stripe" : "https://js.stripe.com/v2/stripe",
       "simpleCart" : "#{simpleCart}",

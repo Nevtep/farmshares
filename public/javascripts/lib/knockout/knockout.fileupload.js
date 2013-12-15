@@ -1,4 +1,4 @@
-﻿define(['knockout', 'jquery', 'jquery.fileupload'], function (ko, $) {
+define(['knockout', 'jquery', 'jquery.fileupload', 'jquery.fileupload-process', 'jquery.fileupload-image'], function (ko, $) {
     ko.bindingHandlers.fileUploader = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
             // This will be called when the binding is first applied to an element

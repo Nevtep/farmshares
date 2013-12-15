@@ -32,7 +32,7 @@
         span.btn.btn-success.fileinput-button
           i.icon-plus.icon-white
           span= __("Add photo")
-          input(type="file", name="photo", autoUpload=false, data-url="/upload/farm/share/photo", data-bind="fileUploader: { datatype: 'json', add: $parent.addImageToEditingShare }")
+          input(type="file", name="photo", autoUpload=false, data-url="/upload/farm/share/photo", data-bind="fileUploader: { datatype: 'json', add: $parent.addImageToEditingShare, imageMaxWidth: 255, disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent) }")
       .row-fluid
         ul.thumbnails(data-bind="preview: uploads")
           li
