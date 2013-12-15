@@ -1,18 +1,19 @@
 .navbar-wrapper
   .navbar.navbar-fixed-top
     .navbar
-      .navbar-heading 
-        ul.nav.nav-pills.pull-right
-          if getLocale() != "es"
-            li
-              a(href="?lang=es")
-                != CDN("/images/buttons/lang-esp.png")
-          if getLocale() != "en"
-            li
-              a(href="?lang=en")
-                != CDN("/images/buttons/lang-ing.png")
-      
+      .navbar-heading       
         ul.nav.nav-tabs.pull-right
+          li
+            ul.nav.nav-pills.pull-right
+              if getLocale() != "es"
+                li
+                  a(href="?lang=es", title="Ver en Español")
+                    != CDN("/images/buttons/lang-esp.png")
+              if getLocale() != "en"
+                li
+                  a(href="?lang=en", title="View in English")
+                    != CDN("/images/buttons/lang-ing.png")
+                    
           li.tab-green.title17.white
             if everyauth.loggedIn
               a.title12.white(href="/customer", style="padding: 8px 4px 8px 4px; font-weight: bold")= __("My Account")
@@ -28,6 +29,7 @@
               != CDN("/images/buttons/skype-call.png")
               span.title12.blue= __("Call us")
               span.title14.blue +1 5402270730
+        
         
     .navbar
       .navbar-inner
