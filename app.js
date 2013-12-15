@@ -12,6 +12,7 @@ var winston = require("winston")
   , MongoStore = require('connect-mongo')(express)
   , mongoose = require('mongoose')
   , i18n = require('i18n-2')
+  , locale = require('locale')
   , errors = require('errorhandling')
   , spawn = require('child_process').spawn;
 
@@ -34,7 +35,7 @@ require('./settings/auth');
 var app = express();
 
 var port = process.env.PORT || 3000;
-
+var supportedLocales=['en', 'es'];
 app.configure(function () {
     app.set('port', port);
 
@@ -47,8 +48,9 @@ app.configure(function () {
     app.use(express.favicon());    
     i18n.expressBind(app, {
         // setup some locales - other locales default to en silently
-        locales: ['en', 'es']
+        locales: supportedLocales
     });
+    app.use(locale(supportedLocales));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser());
@@ -59,15 +61,19 @@ app.configure(function () {
         })
     }));    
     //Set session locale
-  app.use(function(req,res,next){
-    if(!req.query.lang && req.session.preferredLocale)
-      req.i18n.setLocale(req.session.preferredLocale);
-    else {
-      req.session.preferredLocale = req.i18n.getLocale();
-      req.session.save();
-    }
-    next();
-  });
+    app.use(function(req,res,next){
+      if(!req.query.lang) {
+        if(req.session.preferredLocale)
+          req.i18n.setLocale(req.session.preferredLocale);
+        else {
+          req.i18n.setLocale(req.locale);
+        }
+      } else {
+        req.session.preferredLocale = req.i18n.getLocale();
+        req.session.save();
+      } 
+      next();
+    });
     app.use(require('geolocation').middleware);
     app.use(everyauth.middleware());    
     //app.use(app.router);

@@ -35,12 +35,13 @@
     "jade": "0.28.2",
     "stylus": "0.32.1",
     "i18n-2": "https://github.com/RealFilling/i18n-node-2/tarball/master",
+    "locale":"0.0.12",
     "mime": "1.2.6",
     "underscore": "1.4.4",
     "walk": "2.2.1",
     "knox": "0.8.6",
     "uglify-js": "1.3.2",
-    "bcrypt": "*"
+    "bcrypt": "0.7.7"
   },
   "bundledDependencies": [
     "nodemailer"
