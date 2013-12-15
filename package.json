@@ -21,7 +21,7 @@
     "semver": "1.1.4",
     "winston": "0.6.2",
     "winston-mail": "0.2.5",
-    "request": "2.9.203",
+    "request": "2.29.0",
     "async": "0.2.8",
     "express": "3.2.1",
     "express-cdn": "0.1.8",
@@ -53,7 +53,8 @@
     "sinon": "1.6.x",
     "supertest": "0.5.1",
     "pow-mongoose-fixtures": "0.2.x",
-    "ejs": "0.7.2"
+    "ejs": "0.7.2",
+    "gm": "1.9.0"
   },
   "main": "app.js",
   "subdomain": "farmshares",
