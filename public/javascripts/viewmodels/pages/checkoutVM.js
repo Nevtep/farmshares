@@ -127,7 +127,7 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       self.checkout = function (data, evt) {
         var timeFrame = new Date(self.timeframeStart().getTime());
         timeFrame.setHours(timeFrame.getHours() + 2);
-        if(self.paymentMean == "credit") {
+        if(self.paymentMean() == "credit") {
           if (self.account.billing_address.country.name().toLowerCase() == "chile") {
             simpleCart.bind('beforeCheckout', function (data) {
               data.customer_email = self.account.email();
