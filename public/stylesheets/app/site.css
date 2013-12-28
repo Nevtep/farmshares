@@ -1,6 +1,12 @@
 body {
   background-image: url("/images/bg.png");
 }
+#locations {
+  position: absolute;
+}
+#locations .dropdown-menu {
+  position: static;
+}
 .media-object .ImageSb1 {
   width: 200px !important;
   height: 150px !important;
