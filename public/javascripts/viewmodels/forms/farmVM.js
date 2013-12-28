@@ -30,62 +30,9 @@ define(['knockout', 'geolocationVM', 'farmDataVM', 'statusDataVM', 'knockout.val
       });
         // Initialize geolocation if given a map
         if(ui.map) {
-            self.setMapCanvas.apply(self, [ui.map]);
-            // subcribe to geocode to update location
-            self.geocode.subscribe(function(locationObj){
-              var location = self.farmData().location;
-              // Format the field
-              location.str(locationObj.formatted_address);
-              // Add LONG/LAT since Mongo uses that format
-              location.geometry()[0] = locationObj.geometry.location.lng();
-              location.geometry()[1] = locationObj.geometry.location.lat();
-              // Complete remaining info
-              var address = locationObj.address_components;
-              for (var i = address.length - 1; i >= 0; i--) {
-                var which;
-                switch (address[i].types[0]) {
-                    case 'administrative_area_level_1':
-                        which = "region";
-                        break;
-
-                    case 'administrative_area_level_2':
-                        which = "state";
-                        break;
-
-                    case 'locality':
-                        which = "city";
-                        break;
-
-                    case 'route':
-                        which = "address"
-                        break;
-
-                    default: 
-                        which = address[i].types[0];
-                        break;
-                }
-
-                if (which === "address") {
-                    location.address.street.main.name(address[i].long_name);
-                } else if (which === "street_number") {
-                    location.address.street.main.number(address[i].long_name);
-                } else {
-                    if (!location[which]) location[which] = {
-                      name: ko.observable(),
-                      shortname: ko.observable()
-                    };
-                    location[which].name(address[i].long_name);
-                    location[which].shortname(address[i].short_name);                    
-                }
-            };
-            })
+            self.setMapCanvas.apply(self, [ui.map]);            
+            self.codingAddress = self.farmData().location;
           }
-
-        // Geolocation Wrappers
-        self.locationChanged = function (data, event) {
-            self.codeAddress.apply(self, [data.location.str()])
-            return true;
-        };
 
         // CRUD Wrappers
         self.createFarm = function () {             
