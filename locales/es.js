@@ -207,5 +207,10 @@
 	"Photo Gallery": "Photo Gallery",
 	"Add photos...": "Add photos...",
 	"Save Farm": "Save Farm",
-	"Saving Farm...": "Saving Farm..."
+	"Saving Farm...": "Saving Farm...",
+	"Your info was updated": "Your info was updated",
+	"Password": "Password",
+	"Change your Password...": "Change your Password...",
+	"Same as billing address": "Same as billing address",
+	"Update": "Update"
 }

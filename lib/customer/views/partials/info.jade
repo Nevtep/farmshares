@@ -44,7 +44,11 @@ block section_content
       .control-group
         label.control-label= __("Address")
         .controls
-          input(type="text", autocomplete="on", data-bind="value: str, event: { change: $parentContext.$parent.locationChanged }", required)
+          input(type="text", autocomplete="on", data-bind="value: str, event: { keyup: $root.locationChanged }", required)
+          #locations
+            ul.dropdown-menu(data-bind="foreach: $root.locations")
+              li
+                a(tabindex="-1", href="#", data-bind="click: $root.setLocation, text: formatted_address")
           p(data-bind="validationMessage: str")
       .control-group
         label.control-label= __("City")
