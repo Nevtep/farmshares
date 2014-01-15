@@ -1,78 +1,10 @@
 h2= __("Delivery Options")
-form.form-horizontal    
-  .control-group
-    label.control-label= __("Delivery Day")
-    .controls
-      select(data-bind="value: deliveryDay")
-        option(value="6")= __("Saturday")
-        option(value="7")= __("Sunday")
-        option(value="8")= __("Monday")
-  .control-group
-    label.control-label= __("Timeframe")
-    .controls
-      select(data-bind="value: deliveryTimeframe")
-        option(value="12")= __("12pm to 2pm")
-        option(value="14")= __("2pm to 4pm")
-        option(value="16")= __("4pm to 6pm")
+include ../forms/delivery
 .muted= __("WILL DELIVER ON: ")
   span.blue.bold(data-bind="text: nextDelivery")
 h2= __("Payment Method")
-form.form-horizontal
-  .offset1
-    label.radio
-      input(type="radio", name="payment_method", value="cash", data-bind="checked: paymentMean")
-      != __("Cash on Delivery")
-    label.radio
-      input(type="radio", name="payment_method", value="credit", data-bind="checked: paymentMean")
-      != __("Credit Card")
-.row-fluid(data-bind="visible: payByCredit")
-  h2= __("Payment Options")
-  .container-fluid(data-bind="when: accountReady")
-    if country == "ch"
-      .row-fluid.payment-methods
-        for pm, index in ["bbva","presto","webpay","bancochile","bci","tbanc","bestado","ripley"]
-          div(class="radio inline btn-#{pm}")
-            span        
-            input(type="radio", name="payment_method", id="pm#{index + 1}", value="#{index + 1}", data-bind="checked: paymentMethod")
-            span
-      .well.muted= __("You will be redirected to PuntoPagos.com and will return to FarmShares.com after entering payment information.")
-    else
-      form.form-horizontal
-        .control-group
-          label.control-label= __("Credit Card")
-          .controls
-            select(data-bind="value: cardbrand")
-              option(value="visa")= __("Visa")
-              option(value="master")= __("Master Card")
-              option(value="aexpress")= __("American Express")
-        .control-group
-          label.control-label= __("Card Number")
-          .controls
-            input(type="text", data-bind="value: cardnumber")
-        .control-group
-          label.control-label= __("Expiration Date")
-          .controls
-            select.input-medium(data-bind="value: cardExpirationMonth")
-              option(value="1")= __("January")
-              option(value="2")= __("February")
-              option(value="3")= __("March")
-              option(value="4")= __("April")
-              option(value="5")= __("May")
-              option(value="6")= __("June")
-              option(value="7")= __("July")
-              option(value="8")= __("August")
-              option(value="9")= __("September")
-              option(value="10")= __("October")
-              option(value="11")= __("November")
-              option(value="12")= __("December")
-            input.input-mini(type="text", data-bind="value: cardExpirationYear")
-        .control-group
-          label.control-label= __("Security Code")
-          .controls
-            input.input-mini(type="text", data-bind="value: cvc")
-            span
-              a.title10.blue#cvc-tooltip(href="#")= __("What's this?")
-      
+include ../forms/paymentmethods
+include creditoptions
 h3.title18.blue.uppercase.bold= __("Order Total:")
   span.simpleCart_grandTotal &nbsp;
 a(href="#", data-bind="click: checkout").btn.btn-success= __("Place Order")
