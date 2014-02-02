@@ -6,3 +6,6 @@ form.form-horizontal
     label.radio
       input(type="radio", name="payment_method", value="credit", data-bind="checked: paymentMean")
       != __("Credit Card")
+    label.radio
+      input(type="radio", name="payment_method", value="bitcoin", data-bind="checked: paymentMean")
+      != __("Bitcoin")

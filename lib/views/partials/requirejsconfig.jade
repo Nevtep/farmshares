@@ -76,6 +76,7 @@
 - var puntopagosPaymentVM = CDN("/javascripts/viewmodels/payments/puntopagos.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var stripePaymentVM = CDN("/javascripts/viewmodels/payments/stripe.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var cashPaymentVM = CDN("/javascripts/viewmodels/payments/cash.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var bitcoinPaymentVM = CDN("/javascripts/viewmodels/payments/bitcoin.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 script
   var require = {
     waitSeconds : 15,
@@ -158,7 +159,8 @@ script
       // Payments
       "stripePayment" : "#{stripePaymentVM}",
       "puntopagosPayment" : "#{puntopagosPaymentVM}",
-      "cashPayment" : "#{cashPaymentVM}"
+      "cashPayment" : "#{cashPaymentVM}",
+      "bitcoinPayment" : "#{bitcoinPaymentVM}"
     },
     shim: {
       "knockout": ["jquery"],

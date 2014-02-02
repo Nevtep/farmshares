@@ -5,6 +5,8 @@ include ../forms/delivery
 h2= __("Payment Method")
 include ../forms/paymentmethods
 include creditoptions
+include bitcoininfo
 h3.title18.blue.uppercase.bold= __("Order Total:")
-  span.simpleCart_grandTotal &nbsp;
+  span.simpleCart_grandTotal(data-bind="visible: cashTotal") &nbsp;
+  span(data-bind="visible: payByBitcoin, text: btcamount")
 a(href="#", data-bind="click: checkout").btn.btn-success= __("Place Order")

@@ -1,4 +1,4 @@
-define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM", "puntopagosPayment", "stripePayment", "cashPayment", "knockout.lazy", "bootstrap"], function ($, ko, geolocationVM, auth, cartData, puntopagosPayment, stripePayment, cashPayment) {
+define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM", "puntopagosPayment", "stripePayment", "cashPayment", "bitcoinPayment", "knockout.lazy", "bootstrap"], function ($, ko, geolocationVM, auth, cartData, puntopagosPayment, stripePayment, cashPayment, bitcoinPayment) {
     var checkoutPageVM = function () {
       var self = this;
       
@@ -65,7 +65,23 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       self.payByCredit = ko.computed(function() {
         return self.paymentMean() == "credit";
       });
+      self.payByBitcoin = ko.computed(function() {
+        return self.paymentMean() == "bitcoin";
+      });
+      
+      self.cashTotal = ko.computed(function() {
+        return !self.payByBitcoin();
+      });
       self.paymentMethod = ko.observable("3");
+      self.btcamount = ko.observable();
+      self.payByBitcoin.subscribe(function(updateAmount){
+        if(updateAmount){
+          var bitcoin = new bitcoinPayment();
+          
+          bitcoin.updateAmount(self.btcamount);
+        }
+      })
+      
       self.cardbrand = ko.observable();
       self.cardnumber = ko.observable();
       self.cardExpirationMonth = ko.observable();
@@ -81,12 +97,12 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
           } else {
             payment = new stripePayment();
           };
+        } else if (self.paymentMean() == "bitcoin") {
+            payment = new bitcoinPayment();
         } else {
           payment = new cashPayment();
         };
-        
         payment.process(self);
-        
       };
     };
 
