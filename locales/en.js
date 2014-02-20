@@ -172,5 +172,7 @@
 	"Send your payment to this address": "Send your payment to this address",
 	"Houston, we have a problem :(": "Houston, we have a problem :(",
 	"Please, try again in a few moments": "Please, try again in a few moments",
-	"You will receive an email with instructions to complete your payment.": "You will receive an email with instructions to complete your payment."
+	"You will receive an email with instructions to complete your payment.": "You will receive an email with instructions to complete your payment.",
+	"Complete your order": "Complete your order",
+	"To fullfill your order please send your payment to the following address": "To fullfill your order please send your payment to the following address"
 }

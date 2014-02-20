@@ -1,12 +1,27 @@
-define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM", "puntopagosPayment", "stripePayment", "cashPayment", "bitcoinPayment", "knockout.lazy", "bootstrap"], function ($, ko, geolocationVM, auth, cartData, puntopagosPayment, stripePayment, cashPayment, bitcoinPayment) {
+define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM", "puntopagosPayment", "stripePayment", "cashPayment", "bitcoinPayment", "simpleCart", "knockout.lazy", "bootstrap"], function ($, ko, geolocationVM, auth, cartData, puntopagosPayment, stripePayment, cashPayment, bitcoinPayment, simpleCart) {
     var checkoutPageVM = function () {
       var self = this;
-      
+      var country = $("#coutry_code").val();
       self.cart = new cartData();
       
+      if (country=="ch"){
+      	simpleCart.currency({
+      		code:"CLP",
+      		symbol:"CLP",
+      		name:"Chilean Peso"
+      	});
+      } else if (country=="ar"){
+      	simpleCart.currency({
+      		code:"ARS",
+      		symbol:"$",
+      		name:"Argentine Peso"
+      	});
+      } else
+        simpleCart.currency("USD");
+        
       self.account = auth.account;
       self.accountReady = ko.computed(function () {
-        return auth.loggedIn && auth.account.ready()
+        return auth.loggedIn && auth.account.ready();
       });      
       self.copyAddress = ko.observable(false);
       self.notCopyAddress = ko.computed(function(){
@@ -73,7 +88,7 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
         return !self.payByBitcoin();
       });
       self.paymentMethod = ko.observable("3");
-      self.btcamount = ko.observable();
+      self.btcamount = ko.observable("Calculating...");
       self.payByBitcoin.subscribe(function(updateAmount){
         if(updateAmount){
           var bitcoin = new bitcoinPayment();
@@ -92,13 +107,14 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       self.checkout = function (data, evt) {
         var payment;
         if(self.paymentMean() == "credit") {
-          if (self.account.billing_address.country.name().toLowerCase() == "chile") {
+          if (country == "ch") {
             payment = new puntopagosPayment();
           } else {
             payment = new stripePayment();
           };
         } else if (self.paymentMean() == "bitcoin") {
             payment = new bitcoinPayment();
+            payment.btc_total = self.btcamount();
         } else {
           payment = new cashPayment();
         };

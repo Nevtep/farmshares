@@ -1,4 +1,4 @@
-define(["simpleCart"],function(simpleCart){
+define(["jquery", "simpleCart"],function($, simpleCart){
   return function bitcoinPayment(){
     var self = this;
     
@@ -11,11 +11,17 @@ define(["simpleCart"],function(simpleCart){
         data.customer_billingaddress = checkout.account.billing_address.toJSON();
         data.customer_shippingaddress = checkout.account.shipping_address.toJSON();
         data.payment_provider = "Bitcoin";
-        data.currency = BTC;
-        data.payment_total = self.btc_total;
+        data.currency = simpleCart.currency().code.toLowerCase();
+        data.payment_total = self.btc_total; 
       });
       
       simpleCart.checkout();
+    }
+    
+    self.updateAmount = function(amountObservable){
+    	$.post("/payments/bitcoin/exchange",{currency:simpleCart.currency().code,amount:simpleCart.grandTotal()},function(response){
+    		amountObservable("BTC " + response.btc)
+    	},'json')
     }
   }
 });

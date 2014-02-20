@@ -212,5 +212,7 @@
 	"Password": "Password",
 	"Change your Password...": "Change your Password...",
 	"Same as billing address": "Same as billing address",
-	"Update": "Update"
+	"Update": "Update",
+	"Houston, we have a problem :(": "Houston, we have a problem :(",
+	"Please, try again in a few moments": "Please, try again in a few moments"
 }

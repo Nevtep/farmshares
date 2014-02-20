@@ -10,7 +10,7 @@ define(["simpleCart"],function(simpleCart){
         data.customer_billingaddress = checkout.account.billing_address.toJSON();
         data.customer_shippingaddress = checkout.account.shipping_address.toJSON();
         data.payment_provider = "Cash";
-        data.currency = checkout.account.billing_address.country.name().toLowerCase() == "chile" ? "clp" : "usd";
+        data.currency = simpleCart.currency().code.toLowerCase();
         data.payment_total = simpleCart.total();
       });
       
