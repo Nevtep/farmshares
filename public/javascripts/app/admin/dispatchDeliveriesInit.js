@@ -1,5 +1,6 @@
 require(['knockout', 'jquery', 'dispatchDeliveriesVM', 'bootstrap', 'knockout.lazy'], function (ko, $, dispatchDeliveries) {
     $(function () {
+    	var now = new Date();
         var ui = {    
           filters: {}
         };

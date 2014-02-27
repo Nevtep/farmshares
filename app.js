@@ -185,6 +185,39 @@ var Mixpanel = require('mixpanel');
 var mixpanel = Mixpanel.init('e1c74e6ca2c4d4cdbcdc6e9fdd55ae20');
 global.mixpanel = mixpanel;
 
+
+/**
+* Delivery E-Mail sending cron task
+*/
+var sendDaemon = function(){
+	var mailing = require("mailing")
+		, dispatch = require("orders").dispatch;
+	
+	// get deliveries
+	
+	var purchase_obj = {
+          customer: order.customer,
+          order: {
+            id : order._id,
+            placed : _.find(order.status,function(status){return status.name=="placed"}).timestamp.toLocaleDateString(),
+            total:_.first(order.payments).amount,
+            shipping:0,
+            tax:0,
+            grandTotal:_.first(order.payments).amount,
+            currency:_.first(order.payments).currency_code.toUpperCase()
+          },
+          deliveryDate: delivery.timeframe,
+          summary: summary
+        };
+        var purchaseMailOptions = {
+          from: "Farm Shares Support <support@farmshares.com>", // sender address
+          cco: ["support@farmshares.com"], // loopback address
+          to: order.customer.email, // list of receivers
+          subject: "Tu pedido de FarmShares.com" // Subject line
+        };
+        mailing.queueEmail(purchaseMailOptions, "upcomingdeliveries", purchase_obj);       
+}
+
 /**
 * Create the webserver
 */
