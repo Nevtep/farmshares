@@ -16,12 +16,12 @@ define(["jquery", "simpleCart"],function($, simpleCart){
       });
       
       simpleCart.checkout();
-    }
+    };
     
     self.updateAmount = function(amountObservable){
     	$.post("/payments/bitcoin/exchange",{currency:simpleCart.currency().code,amount:simpleCart.grandTotal()},function(response){
-    		amountObservable("BTC " + response.btc)
-    	},'json')
-    }
-  }
+    		amountObservable("BTC " + response.btc);
+    	},'json');
+    };
+  };
 });
