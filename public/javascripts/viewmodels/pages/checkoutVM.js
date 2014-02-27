@@ -12,10 +12,15 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       	});
       } else if (country=="ar"){
       	simpleCart.currency({
+      		code:"CLP",
+      		symbol:"CLP",
+      		name:"Chilean Peso"
+      	});
+      	/*simpleCart.currency({
       		code:"ARS",
       		symbol:"$",
       		name:"Argentine Peso"
-      	});
+      	});*/
       } else
         simpleCart.currency("USD");
         
