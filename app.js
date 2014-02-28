@@ -194,29 +194,28 @@ var sendDaemon = function(){
 		, dispatch = require("orders").dispatch;
 	
 	// get deliveries
+	var now = new Date();
+	var nextMonday = now.getDay() > 1 ? new Date(now.getTime() + ((8 -now.getDay()) * (60*60*24*1000))) : new Date(now.getTime() + ((1 -now.getDay()) * (60*60*24*1000)));
+	nextMonday.setHours(23);
+	nextMonday.setMinutes(59);
+	nextMonday.setSeconds(59);
 	
-	var purchase_obj = {
-          customer: order.customer,
-          order: {
-            id : order._id,
-            placed : _.find(order.status,function(status){return status.name=="placed"}).timestamp.toLocaleDateString(),
-            total:_.first(order.payments).amount,
-            shipping:0,
-            tax:0,
-            grandTotal:_.first(order.payments).amount,
-            currency:_.first(order.payments).currency_code.toUpperCase()
-          },
-          deliveryDate: delivery.timeframe,
-          summary: summary
+	var filters = { 
+		"timeframe.end" : { "$lt" : nextMonday }
+	};
+	dispatch.getDeliveries(filters, function(deliveries){
+		var deliveries_obj = {
+          deliveries : deliveries
         };
-        var purchaseMailOptions = {
+        var deliveriesMailOptions = {
           from: "Farm Shares Support <support@farmshares.com>", // sender address
           cco: ["support@farmshares.com"], // loopback address
-          to: order.customer.email, // list of receivers
-          subject: "Tu pedido de FarmShares.com" // Subject line
+          to: "corellanot@gmail.com", // list of receivers
+          subject: "Próximas Entregas de FarmShares.com" // Subject line
         };
-        mailing.queueEmail(purchaseMailOptions, "upcomingdeliveries", purchase_obj);       
-}
+        mailing.queueEmail(deliveriesMailOptions, "upcomingdeliveries", deliveries_obj);   
+    });    
+};
 
 /**
 * Create the webserver
