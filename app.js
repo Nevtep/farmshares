@@ -185,6 +185,62 @@ var Mixpanel = require('mixpanel');
 var mixpanel = Mixpanel.init('e1c74e6ca2c4d4cdbcdc6e9fdd55ae20');
 global.mixpanel = mixpanel;
 
+
+/**
+* Delivery E-Mail sending cron task
+*/
+var sendDaemon = function(){
+	var mailing = require("mailing")
+		, dispatch = require("orders").dispatch
+	  , _ = require("underscore");
+	// get deliveries
+	var now = new Date();
+	var nextMonday = now.getDay() > 1 ? new Date(now.getTime() + ((8 -now.getDay()) * (60*60*24*1000))) : new Date(now.getTime() + ((1 -now.getDay()) * (60*60*24*1000)));
+	nextMonday.setHours(23);
+	nextMonday.setMinutes(59);
+	nextMonday.setSeconds(59);
+	
+	var filters = { 
+		"timeframe.end" : { "$lt" : nextMonday }
+	};
+	var Account = require("auth").models.Account;
+	dispatch.getDeliveries(filters, function(deliveries){
+  	Account.find({"roles" : "courier" }, function(err,accounts) {
+  	  var sendEmails = _.after(accounts.length,function(){
+        var mailer = mailing.Mailer;
+        mailer.sendEmails();
+  	  });
+  	  
+  	  _.each(accounts, function(courier){
+      	
+    		var deliveries_obj = {
+    		  courier : courier.toObject(),
+          deliveries : deliveries
+        };
+        var deliveriesMailOptions = {
+          from: "Farm Shares Support <support@farmshares.com>", // sender address
+          cco: ["support@farmshares.com"], // loopback address
+          to: courier.email, // list of receivers
+          subject: "Próximas Entregas de FarmShares.com" // Subject line
+        };
+        var MailModel = require("mailing").models.Mail;
+
+        var email = new MailModel();
+    
+        email.status.push({name:"queued", timestamp:new Date()});
+        email.templateName = "upcomingdeliveries";
+        email.templateData = deliveries_obj;
+        email.mailOptions = deliveriesMailOptions;
+    
+        email.save(function (err) {
+            if(err) throw new Error(err);
+            sendEmails();
+        });
+      });
+    });
+  });    
+};
+
 /**
 * Create the webserver
 */
@@ -213,6 +269,19 @@ http.createServer(app).listen(app.get('port'), function() {
     customer.locals({ CDN: CDN() });
     storemanager.locals({ CDN: CDN() });
     app.locals({ CDN: CDN() });
+    
+    
+    // Run cron task
+    var now = new Date();
+    var nextFriday = now.getDay() > 5 ? new Date(now.getTime() + ((12 -now.getDay()) * (60*60*24*1000))) : new Date(now.getTime() + ((5 -now.getDay()) * (60*60*24*1000)));
+    nextFriday.setHours(20);
+    nextFriday.setMinutes(0);
+    nextFriday.setSeconds(0);
+    winston.info("Sending delivery emails in: ", nextFriday.getTime() - now.getTime())
+    setTimeout(function(){
+      sendDaemon();
+      setInterval(function(){sendDaemon()},1000*60*60*24*7)
+    },nextFriday.getTime() - now.getTime());
   //});
   
   }

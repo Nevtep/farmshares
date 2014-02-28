@@ -5,7 +5,7 @@ define(['knockout', 'jquery'], function (ko, $) {
         self.deliveries = ko.observableArray();
 
         self.load = function (filters) {
-            return $.post("/order/dispatch/deliveries/", filters,function (deliveries) {
+            return $.post("/order/dispatch/deliveries/",{filters: filters},function (deliveries) {
                 self.deliveries(deliveries);
             }, 'json');
         }
