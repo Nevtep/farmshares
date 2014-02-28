@@ -166,5 +166,13 @@
 	"We try to offer the best customer service you could want; if waiting at home for delivery isn't convenient you can get your order picked up from one of our partner stores in your area.": "We try to offer the best customer service you could want; if waiting at home for delivery isn't convenient you can get your order picked up from one of our partner stores in your area.",
 	"Help sustainable farms grow and thrive": "Help sustainable farms grow and thrive",
 	"When you subscribe to your Farm Share, you're giving that farmer a steady stream of income that helps them invest in producing more food, better, and more cost-effectively. That's why we offer discounts for pre-paying shares, buying in volume and ordering with friends - we're creating a platform where farms can become what they need to be in order to feed the world sustainably.": "When you subscribe to your Farm Share, you're giving that farmer a steady stream of income that helps them invest in producing more food, better, and more cost-effectively. That's why we offer discounts for pre-paying shares, buying in volume and ordering with friends - we're creating a platform where farms can become what they need to be in order to feed the world sustainably.",
-	"Free delivery for the first month and for monthly orders above $50 USD. Place your order by Friday at 8am to get your food that Saturday, Sunday, or Monday.": "Free delivery for the first month and for monthly orders above $50 USD. Place your order by Friday at 8am to get your food that Saturday, Sunday, or Monday."
+	"Free delivery for the first month and for monthly orders above $50 USD. Place your order by Friday at 8am to get your food that Saturday, Sunday, or Monday.": "Free delivery for the first month and for monthly orders above $50 USD. Place your order by Friday at 8am to get your food that Saturday, Sunday, or Monday.",
+	"Cash on Delivery": "Cash on Delivery",
+	"Bitcoin": "Bitcoin",
+	"Send your payment to this address": "Send your payment to this address",
+	"Houston, we have a problem :(": "Houston, we have a problem :(",
+	"Please, try again in a few moments": "Please, try again in a few moments",
+	"You will receive an email with instructions to complete your payment.": "You will receive an email with instructions to complete your payment.",
+	"Complete your order": "Complete your order",
+	"To fullfill your order please send your payment to the following address": "To fullfill your order please send your payment to the following address"
 }

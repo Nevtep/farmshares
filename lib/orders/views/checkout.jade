@@ -12,7 +12,9 @@ append js
 block header
   a.logo(href="/")
     != CDN("/images/farmshares-logo.png")
-
+append data
+  input#coutry_code(type="hidden", value="#{country}")
+  
 block content
   .container
     .row-fluid

@@ -79,7 +79,7 @@ exports.findOrCreate = function(provider, promise, session, accessToken, accessT
       winston.error("Couldn't find such account.", err);
       promise.fulfill(err.errors);
     }
-    winston.info("Account", account);
+    //winston.info("Account", account);
     if(account === undefined || account === null) {
       createAccount();
     } else {

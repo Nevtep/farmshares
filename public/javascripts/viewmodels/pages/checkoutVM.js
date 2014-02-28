@@ -1,12 +1,32 @@
-define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM", "knockout.lazy", "bootstrap"], function ($, ko, geolocationVM, auth, cartData) {
+define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM", "puntopagosPayment", "stripePayment", "cashPayment", "bitcoinPayment", "simpleCart", "knockout.lazy", "bootstrap"], function ($, ko, geolocationVM, auth, cartData, puntopagosPayment, stripePayment, cashPayment, bitcoinPayment, simpleCart) {
     var checkoutPageVM = function () {
       var self = this;
-      
+      var country = $("#coutry_code").val();
       self.cart = new cartData();
       
+      if (country=="ch"){
+      	simpleCart.currency({
+      		code:"CLP",
+      		symbol:"CLP",
+      		name:"Chilean Peso"
+      	});
+      } else if (country=="ar"){
+      	simpleCart.currency({
+      		code:"CLP",
+      		symbol:"CLP",
+      		name:"Chilean Peso"
+      	});
+      	/*simpleCart.currency({
+      		code:"ARS",
+      		symbol:"$",
+      		name:"Argentine Peso"
+      	});*/
+      } else
+        simpleCart.currency("USD");
+        
       self.account = auth.account;
       self.accountReady = ko.computed(function () {
-        return auth.loggedIn && auth.account.ready()
+        return auth.loggedIn && auth.account.ready();
       });      
       self.copyAddress = ko.observable(false);
       self.notCopyAddress = ko.computed(function(){
@@ -52,6 +72,11 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
         next.setHours(self.deliveryTimeframe(),0,0,0);
         return next;
       })
+      self.timeframeEnd = ko.computed(function(){
+        var timeFrame = new Date(self.timeframeStart().getTime());
+        timeFrame.setHours(timeFrame.getHours() + 2);
+        return timeFrame;
+      })
       self.nextDelivery = ko.computed(function () {
         return self.timeframeStart().toLocaleDateString();
       })
@@ -60,7 +85,23 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       self.payByCredit = ko.computed(function() {
         return self.paymentMean() == "credit";
       });
+      self.payByBitcoin = ko.computed(function() {
+        return self.paymentMean() == "bitcoin";
+      });
+      
+      self.cashTotal = ko.computed(function() {
+        return !self.payByBitcoin();
+      });
       self.paymentMethod = ko.observable("3");
+      self.btcamount = ko.observable("Calculating...");
+      self.payByBitcoin.subscribe(function(updateAmount){
+        if(updateAmount){
+          var bitcoin = new bitcoinPayment();
+          
+          bitcoin.updateAmount(self.btcamount);
+        }
+      })
+      
       self.cardbrand = ko.observable();
       self.cardnumber = ko.observable();
       self.cardExpirationMonth = ko.observable();
@@ -69,62 +110,20 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       
       // CHECKOUT
       self.checkout = function (data, evt) {
-        var timeFrame = new Date(self.timeframeStart().getTime());
-        timeFrame.setHours(timeFrame.getHours() + 2);
+        var payment;
         if(self.paymentMean() == "credit") {
-          if (self.account.billing_address.country.name().toLowerCase() == "chile") {
-            simpleCart.bind('beforeCheckout', function (data) {
-              data.customer_email = self.account.email();
-              data.customer_delivery_from = self.timeframeStart().getTime();
-              data.customer_delivery_to = timeFrame.getTime();
-              data.customer_billingaddress = self.account.billing_address.toJSON();
-              data.customer_shippingaddress = self.account.shipping_address.toJSON();
-              data.payment_provider = "PuntoPagos";
-              data.currency = "clp";
-              data.payment_method = self.paymentMethod();
-              data.payment_total = simpleCart.total();
-            });
-            
-            simpleCart.checkout();
+          if (country == "ch") {
+            payment = new puntopagosPayment();
           } else {
-            Stripe.card.createToken({
-              number: self.cardnumber(),
-              cvc: self.cvc(),
-              exp_month: self.cardExpirationMonth(),
-              exp_year: self.cardExpirationYear()
-            }, function (status, response) {
-              if (response.error) throw response.error;
-              
-              
-              simpleCart.bind('beforeCheckout', function (data) {
-                data.customer_email = self.account.email();
-                data.customer_delivery_from = self.timeframeStart().getTime();
-                data.customer_delivery_to = timeFrame.getTime();
-                data.customer_billingaddress = self.account.billing_address.toJSON();
-                data.customer_shippingaddress = self.account.shipping_address.toJSON();
-                data.payment_provider = "Stripe";
-                data.currency = "usd";
-                data.payment_stripeToken = response.id;
-                data.payment_total = simpleCart.total();
-              });
-              
-              simpleCart.checkout();
-            });
+            payment = new stripePayment();
           };
+        } else if (self.paymentMean() == "bitcoin") {
+            payment = new bitcoinPayment();
+            payment.btc_total = self.btcamount();
         } else {
-          simpleCart.bind('beforeCheckout', function (data) {
-              data.customer_email = self.account.email();
-              data.customer_delivery_from = self.timeframeStart().getTime();
-              data.customer_delivery_to = timeFrame.getTime();
-              data.customer_billingaddress = self.account.billing_address.toJSON();
-              data.customer_shippingaddress = self.account.shipping_address.toJSON();
-              data.payment_provider = "Cash";
-              data.currency = self.account.billing_address.country.name().toLowerCase() == "chile" ? "clp" : "usd";
-              data.payment_total = simpleCart.total();
-            });
-            
-            simpleCart.checkout();
+          payment = new cashPayment();
         };
+        payment.process(self);
       };
     };
 

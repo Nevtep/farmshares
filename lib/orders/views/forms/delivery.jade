@@ -1,0 +1,15 @@
+form.form-horizontal    
+  .control-group
+    label.control-label= __("Delivery Day")
+    .controls
+      select(data-bind="value: deliveryDay")
+        option(value="6")= __("Saturday")
+        option(value="7")= __("Sunday")
+        option(value="8")= __("Monday")
+  .control-group
+    label.control-label= __("Timeframe")
+    .controls
+      select(data-bind="value: deliveryTimeframe")
+        option(value="12")= __("12pm to 2pm")
+        option(value="14")= __("2pm to 4pm")
+        option(value="16")= __("4pm to 6pm")

@@ -1,0 +1,9 @@
+extends layouts/base
+
+block content
+  span(style="color: rgb(10, 119, 182);display: block;font-family: 'Lucida Grande', sans-serif;font-size: 26px;font-weight: bold;height: 40px;line-height: 40px;margin-bottom: 10px;margin-left: 0px;margin-right: 0px;margin-top: 10px;") #{__("Greetings")} #{customer.name.first}
+  div(style="display: block;height: 43px;line-height: 20px;")
+    span(style="color: rgb(204, 102, 0);display: inline;font-family: 'Lucida Grande', sans-serif;font-size: 18px;height: auto;line-height: 24px;top:18px;position: relative;")= __("We really appreciate your extra support! but you just over-payed us, so we are going to refund you in the next two businnes days.")
+  div(style="display: block;height: 43px;line-height: 20px;")
+    div(style="color: rgb(10, 119, 182);display: inline;font-family: 'Lucida Grande', sans-serif;font-size: 14px;font-weight: bold;height: auto;line-height: 24px;text-transform: uppercase;")= __("Refund amount:")
+      span(style="float:right;")  #{order.currency} #{refund}

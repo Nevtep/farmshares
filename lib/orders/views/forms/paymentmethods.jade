@@ -1,0 +1,11 @@
+form.form-horizontal
+  .offset1
+    label.radio
+      input(type="radio", name="payment_method", value="cash", data-bind="checked: paymentMean")
+      != __("Cash on Delivery")
+    label.radio
+      input(type="radio", name="payment_method", value="credit", data-bind="checked: paymentMean")
+      != __("Credit Card")
+    label.radio
+      input(type="radio", name="payment_method", value="bitcoin", data-bind="checked: paymentMean")
+      != __("Bitcoin")
