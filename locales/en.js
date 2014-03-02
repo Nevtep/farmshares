@@ -160,5 +160,7 @@
 	"Welcome %s!": "Welcome %s!",
 	"Thanks for being part of this.": "Thanks for being part of this.",
 	"We have just sent you an email to ": "We have just sent you an email to ",
-	" to confirm your subscription and purchase.": " to confirm your subscription and purchase."
+	" to confirm your subscription and purchase.": " to confirm your subscription and purchase.",
+	"Complete your order": "Complete your order",
+	"To fullfill your order please send your payment to the following address": "To fullfill your order please send your payment to the following address"
 }
