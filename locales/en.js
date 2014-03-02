@@ -162,5 +162,8 @@
 	"We have just sent you an email to ": "We have just sent you an email to ",
 	" to confirm your subscription and purchase.": " to confirm your subscription and purchase.",
 	"Complete your order": "Complete your order",
-	"To fullfill your order please send your payment to the following address": "To fullfill your order please send your payment to the following address"
+	"To fullfill your order please send your payment to the following address": "To fullfill your order please send your payment to the following address",
+	"Greetings": "Greetings",
+	"We really appreciate your extra support! but you just over-payed us, so we are going to refund you in the next two businnes days.": "We really appreciate your extra support! but you just over-payed us, so we are going to refund you in the next two businnes days.",
+	"Refund amount:": "Refund amount:"
 }
