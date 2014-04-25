@@ -1,4 +1,6 @@
-.span12(data-bind="foreach: deliveries") 
+.span12(data-bind="ifnot: deliveries.length > 0")
+  h1.title26.orange= __("There are no deliveries schedulled for this week")
+.span12(data-bind="if: deliveries.length > 0, foreach: deliveries") 
   .row-fluid.well
     .row-fluid
       h4.pull-right(data-bind="text: timeframe.begin.slice(0,timeframe.begin.indexOf('T')) + ' ' + timeframe.begin.slice(timeframe.begin.indexOf('T')+1,timeframe.begin.lastIndexOf(':'))")
