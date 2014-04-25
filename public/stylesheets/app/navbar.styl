@@ -1,7 +1,7 @@
 .navbar-fixed-top  
-  background-image: url("/images/header-blank.png"),url("/images/header-repeat.png")
-  background-repeat: no-repeat, repeat-x
-  background-position: 0 0, 1026px 0px 
+  background-image: url("/images/header-blank.png")
+  background-repeat: no-repeat
+  background-position: 0 0 
   min-height:108px
   .navbar
     margin-bottom:0px
@@ -95,3 +95,11 @@
           text-shadow: none
           &:hover
             color:  #ccc
+  .repeater
+    background-image: url("/images/header-repeat.png")
+    background-repeat: repeat-x
+    position: absolute
+    left:1026px
+    right:0px
+    top:0px
+    min-height:108px
