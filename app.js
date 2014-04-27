@@ -189,9 +189,8 @@ global.mixpanel = mixpanel;
 /**
 * Delivery E-Mail sending cron task
 */
-var sendDaemon = function(){
-	var mailing = require("mailing")
-		, dispatch = require("orders").dispatch
+var courierEmailDaemon = function(){
+	var dispatch = require("orders").dispatch
 	  , _ = require("underscore");
 	// get deliveries
 	var now = new Date();
@@ -207,8 +206,7 @@ var sendDaemon = function(){
 	dispatch.getDeliveries(filters, function(deliveries){
   	Account.find({"roles" : "courier" }, function(err,accounts) {
   	  var sendEmails = _.after(accounts.length,function(){
-        var mailer = mailing.Mailer;
-        mailer.sendEmails();
+        
   	  });
   	  
   	  _.each(accounts, function(courier){
@@ -234,7 +232,6 @@ var sendDaemon = function(){
     
         email.save(function (err) {
             if(err) throw new Error(err);
-            sendEmails();
         });
       });
     });
@@ -246,13 +243,7 @@ var sendDaemon = function(){
 */
 http.createServer(app).listen(app.get('port'), function() {
     winston.info("FarmShares server listening on port: " + app.get('port'));
-    //This code will leave the server in nodejitsu out of memory.
-    //geolocation will not work properly since without this only country data is retrieved
-    /*console.log('Will download GeoIP-lite');  
-    var ps = spawn('node', "./node_modules/geoip-lite/scripts/updatedb.js".split(" "));
-    ps.stdout.pipe(process.stdout);
-    ps.stderr.pipe(process.stderr);
-    ps.stdout.on('end', function () { console.log('done')*/
+    
     // Initialize the CDN magic
     var CDN = require('express-cdn')(app, cdnOptions);
   
@@ -271,18 +262,23 @@ http.createServer(app).listen(app.get('port'), function() {
     app.locals({ CDN: CDN() });
     
     
-    // Run cron task
+    // Run Courier Emails task
     var now = new Date();
     var nextFriday = now.getDay() > 5 ? new Date(now.getTime() + ((12 -now.getDay()) * (60*60*24*1000))) : new Date(now.getTime() + ((5 -now.getDay()) * (60*60*24*1000)));
     nextFriday.setHours(20);
     nextFriday.setMinutes(0);
     nextFriday.setSeconds(0);
     winston.info("Sending delivery emails in: ", nextFriday.getTime() - now.getTime())
+    
     setTimeout(function(){
-      sendDaemon();
-      setInterval(function(){sendDaemon()},1000*60*60*24*7)
+      courierEmailDaemon();
+      setInterval(function(){courierEmailDaemon()},1000*60*60*24*7)
     },nextFriday.getTime() - now.getTime());
-  //});
-  
+    
+    // Start Email Daemon
+    setInterval(function(){
+      var mailer = require("mailing").Mailer;
+      mailer.sendEmails();
+    }, 60000);
   }
 );
