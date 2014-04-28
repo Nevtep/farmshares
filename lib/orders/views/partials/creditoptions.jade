@@ -1,7 +1,7 @@
 .row-fluid(data-bind="visible: payByCredit")
   h2= __("Payment Options")
   .container-fluid(data-bind="when: accountReady")
-    if country == "ch"
+    if country == "cl"
       .row-fluid.payment-methods
         for pm, index in ["bbva","presto","webpay","bancochile","bci","tbanc","bestado","ripley"]
           div(class="radio inline btn-#{pm}")
