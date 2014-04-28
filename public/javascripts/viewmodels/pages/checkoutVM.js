@@ -4,7 +4,7 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       var country = $("#coutry_code").val();
       self.cart = new cartData();
       
-      if (country=="ch"){
+      if (country=="cl"){
       	simpleCart.currency({
       		code:"CLP",
       		symbol:"CLP",
@@ -112,7 +112,7 @@ define(["jquery", "knockout", "geolocationVM", "authenticationVM", "cartDataVM",
       self.checkout = function (data, evt) {
         var payment;
         if(self.paymentMean() == "credit") {
-          if (country == "ch") {
+          if (country == "cl") {
             payment = new puntopagosPayment();
           } else {
             payment = new stripePayment();
