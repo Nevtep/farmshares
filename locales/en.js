@@ -165,5 +165,11 @@
 	"To fullfill your order please send your payment to the following address": "To fullfill your order please send your payment to the following address",
 	"Greetings": "Greetings",
 	"We really appreciate your extra support! but you just over-payed us, so we are going to refund you in the next two businnes days.": "We really appreciate your extra support! but you just over-payed us, so we are going to refund you in the next two businnes days.",
-	"Refund amount:": "Refund amount:"
+	"Refund amount:": "Refund amount:",
+	"Hi": "Hi",
+	"Not you?": "Not you?",
+	"Your Info": "Your Info",
+	"Welcome": "Welcome",
+	"Soon we'll include basic analytics here so you can get a glance of what's going on.": "Soon we'll include basic analytics here so you can get a glance of what's going on.",
+	"Congratulations! You've got an order!": "Congratulations! You've got an order!"
 }
