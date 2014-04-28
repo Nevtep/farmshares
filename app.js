@@ -268,11 +268,11 @@ http.createServer(app).listen(app.get('port'), function() {
     nextFriday.setHours(20);
     nextFriday.setMinutes(0);
     nextFriday.setSeconds(0);
-    winston.info("Sending delivery emails in: ", nextFriday.getTime() - now.getTime())
+    winston.info("Sending delivery emails in: ", nextFriday.getTime() - now.getTime());
     
     setTimeout(function(){
       courierEmailDaemon();
-      setInterval(function(){courierEmailDaemon()},1000*60*60*24*7)
+      setInterval(function(){courierEmailDaemon();},1000*60*60*24*7);
     },nextFriday.getTime() - now.getTime());
     
     // Start Email Daemon
