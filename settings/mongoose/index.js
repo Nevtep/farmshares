@@ -2,8 +2,8 @@ var env = process.env.NODE_ENV || "development";
 
 var settings = {
 	"development": {
-		hostName: "heroku_app19751207:vrk7tme6n0tr6pkblvmgjp4ofd@ds053838.mongolab.com:53838",
-		dbName: "heroku_app19751207"
+		hostName: "realfilling_dev:citiesofthefuture@ds031637.mongolab.com:31637",
+		dbName: "farmshares_dev"
 	},
 	"test": {
 		hostName: "farmshares_test:citiesofthefuture@ds051977.mongolab.com:51977",
