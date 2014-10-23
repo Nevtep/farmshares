@@ -14,13 +14,18 @@ block content
           .span3
             span.pull-left(data-bind="if: logo")
             img.media-object.ImageSb1(data-bind="attr: { src: logo, title: name }")
-          .span8
+          .span6
             .media-body
-            h1.media-heading.title26.blue(data-bind="text: name")
-            if getLocale() == "es"
-              p.text14(data-bind="text: description.es")
-            if getLocale() == "en"
-              p.text14(data-bind="text: description.en")
+              h1.media-heading.title26.blue(data-bind="text: name")
+              if getLocale() == "es"
+                p.text14(data-bind="text: description.es")
+              if getLocale() == "en"
+                p.text14(data-bind="text: description.en")
+          .span2
+            .media-body
+              h4.media-heading.title18.orange= __("Location")
+              p.text14(data-bind="text: location.city.name + ', ' + location.state.name + ', ' + location.country.name")
+              
         .shareaholic-canvas(data-shareaholic-widgets='share_buttons')
   .container
     .row-fluid#eat
