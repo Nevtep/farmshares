@@ -1,0 +1,781 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pull",
+				"pull-right"
+			],
+			[
+				"med",
+				"media-body"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"nu",
+				"numeraljs"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"stand",
+				"standoutInfo"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"error",
+				"errors"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"getAdd",
+				"getAddressesWithPubkey"
+			],
+			[
+				"con",
+				"concat"
+			],
+			[
+				"address",
+				"addressFilter"
+			],
+			[
+				"wallet",
+				"walletAssets"
+			],
+			[
+				"se",
+				"selectedAddress"
+			],
+			[
+				"modal",
+				"modalScope"
+			],
+			[
+				"wa",
+				"walletAssets"
+			],
+			[
+				"unsig",
+				"unsigned_tx_ascii"
+			],
+			[
+				"pub",
+				"pubKeyHash"
+			],
+			[
+				"dec",
+				"decoded_tx"
+			],
+			[
+				"by",
+				"bytesToHex"
+			],
+			[
+				"To",
+				"toString"
+			],
+			[
+				"add",
+				"address_from_pubkey_hash"
+			],
+			[
+				"main",
+				"mainNetRipe"
+			],
+			[
+				"mai",
+				"mainNetRipe"
+			],
+			[
+				"From",
+				"fromPubKey"
+			],
+			[
+				"as",
+				"address"
+			],
+			[
+				"pubkey",
+				"pubkey"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 8125,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/farms/controllers/farm.js",
+			"settings":
+			{
+				"buffer_size": 2801,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/geolocation/index.js",
+			"settings":
+			{
+				"buffer_size": 7826,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/farms/views/farms.jade",
+			"settings":
+			{
+				"buffer_size": 5020,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/farms/controllers/sku.js",
+			"settings":
+			{
+				"buffer_size": 2903,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/stylesheets/app/home.styl",
+			"settings":
+			{
+				"buffer_size": 7691,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/stylesheets/app/home.css",
+			"settings":
+			{
+				"buffer_size": 8095,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"selected_items":
+		[
+			[
+				"jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"groo",
+				"Set Syntax: Groovy"
+			],
+			[
+				"",
+				"Set Syntax: JSON"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/models/WalletAssets.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_send_modal.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_assets_issue_modal.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_assets_crowdsale_modal.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/TransactionGenerationController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/WalletSendAssetsController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/theme.css",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/PropertyIssuanceController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/CrowdsaleIssuanceController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_broadcast_modal.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/WalletAssetsFormController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/WalletAddressesController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_send.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/controller.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/install-msc/Vagrantfile",
+		"/Users/tcorellano/Documents/workspace/Aptana/farmshares/public/stylesheets/app/site.css",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/AssetDetailsController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/filter.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/asset_types.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/AssetTypesController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_assets_details.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/api/user_service.py",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_overview.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/WalletBuyAssetsController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/service.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/WalletSellAssetsController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_sale.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_trade.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/WalletController.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/js/add_address.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/api/tx_generate_service.py",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/api/armory_service.py",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/wallet_address_list.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/etc/nginx/sites-available/default",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials/import_armory_offline.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/api/msc_apps.py",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/requirements.txt",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/Gruntfile.js",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/index.html",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/build.sh",
+		"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/bower.json"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/",
+			"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www/partials",
+			"/Users/tcorellano/Documents/workspace/Mastercoin/omniwallet/www",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"setBroadcastScope",
+			"broadcast",
+			"rendered",
+			"totalCost",
+			"description-title",
+			"li",
+			"td",
+			"width=\"186px\" height=\"30px\" ",
+			"td",
+			" width=\"126px\" height=\"30px\"",
+			"td",
+			"tr",
+			"table",
+			"<table",
+			" width=\"103px\" height=\"30px\"",
+			"td",
+			"tr",
+			"changeValue",
+			"$scope.changeValue",
+			"div",
+			"numeraljs",
+			"}}",
+			">{{",
+			"}}</span",
+			"span class=\"tag\"",
+			"crowdsale.participanttokens",
+			"participanttokens",
+			"ng-if=\"!property.divisible\"",
+			"ng-if=\"!property.divisible\">{{crowdsale.participanttokens | numeraljs: '0,0'}}",
+			"participanttokens",
+			" | numeraljs: '0,0.00000000'",
+			"crowdsale.divisible",
+			".type.indexOf('Create Property') > -1",
+			".type == 'Close Crowdsale'",
+			"transaction.type == 'Close Crowdsale'",
+			" | numeraljs: '0,0'",
+			" | numeraljs: '0,0.00000000'",
+			"\">\n",
+			" | numeraljs: '0,0.00000000'",
+			" | numeraljs: '0,0'",
+			"infoMessage",
+			"style",
+			"totalsPromise",
+			"all-assets-graph",
+			"style",
+			";",
+			"style=\"color: #ccc\"",
+			"onlyPrivate",
+			"service",
+			"getAddressesWithPrivkey",
+			"convertSatoshiToDisplayedValue",
+			"getDisplayedAbbreviation",
+			"convertSatoshiToDisplayedValue",
+			"unsaved",
+			"form",
+			"setModalScope",
+			"istOptions['",
+			"(Bitcoin.Util.hexToBytes",
+			"Bitcoin.Address",
+			"use_armory",
+			"'use_armory'",
+			",'use_armory'",
+			", request.form['use_armory'] ",
+			"use_armory",
+			"signedTransaction",
+			"address_from_pubkey_hash",
+			"pubkey",
+			"PubKey",
+			"pubKey",
+			"fromHex",
+			"ECPubKey",
+			"pubkey",
+			"pubKey",
+			"PubKey",
+			"pubKey",
+			"pubkey",
+			"PubKey",
+			"pubKey",
+			"pubkey",
+			"pubKey",
+			"PubKey",
+			"pubKey",
+			".offline"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"offlineSupport"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"settings":
+					{
+						"buffer_size": 8125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2200,
+								2203
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 760.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lib/farms/controllers/farm.js",
+					"settings":
+					{
+						"buffer_size": 2801,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib/geolocation/index.js",
+					"settings":
+					{
+						"buffer_size": 7826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								158,
+								123
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/farms/views/farms.jade",
+					"settings":
+					{
+						"buffer_size": 5020,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								864,
+								864
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "lib/farms/controllers/sku.js",
+					"settings":
+					{
+						"buffer_size": 2903,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35,
+								35
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/stylesheets/app/home.styl",
+					"settings":
+					{
+						"buffer_size": 7691,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/stylesheets/app/home.css",
+					"settings":
+					{
+						"buffer_size": 8095,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2138,
+								2084
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1386.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"user",
+				"api/user_service.py"
+			],
+			[
+				"assett",
+				"www/js/AssetTypesController.js"
+			],
+			[
+				"",
+				"www/js/filter.js"
+			],
+			[
+				"_modal",
+				"www/partials/wallet_assets_issue_modal.html"
+			],
+			[
+				"_modal.ht",
+				"www/partials/wallet_assets_crowdsale_modal.html"
+			],
+			[
+				"asse",
+				"www/partials/asset_types.html"
+			],
+			[
+				"filter",
+				"www/js/filter.js"
+			],
+			[
+				"assetdetail",
+				"www/js/AssetDetailsController.js"
+			],
+			[
+				"asset",
+				"www/partials/asset_types.html"
+			],
+			[
+				"wallet_over",
+				"www/partials/wallet_overview.html"
+			],
+			[
+				"heme",
+				"www/theme.css"
+			],
+			[
+				"wallet_asse",
+				"www/partials/wallet_assets_details.html"
+			],
+			[
+				"tra",
+				"www/js/TransactionGenerationController.js"
+			],
+			[
+				"add_",
+				"www/js/add_address.js"
+			],
+			[
+				"wallets",
+				"www/js/WalletSendAssetsController.js"
+			],
+			[
+				"propert",
+				"www/js/PropertyIssuanceController.js"
+			],
+			[
+				"crowd",
+				"www/js/CrowdsaleIssuanceController.js"
+			],
+			[
+				"walletsell",
+				"www/js/WalletSellAssetsController.js"
+			],
+			[
+				"wallet_sale",
+				"www/partials/wallet_sale.html"
+			],
+			[
+				"walletse",
+				"www/js/WalletSellAssetsController.js"
+			],
+			[
+				"walletbu",
+				"www/js/WalletBuyAssetsController.js"
+			],
+			[
+				"crowdsale_",
+				"www/partials/wallet_assets_crowdsale_modal.html"
+			],
+			[
+				"walleta",
+				"www/js/WalletAddressesController.js"
+			],
+			[
+				"wallet_se",
+				"www/partials/wallet_send_modal.html"
+			],
+			[
+				"walletsend",
+				"www/js/WalletSendAssetsController.js"
+			],
+			[
+				"walletass",
+				"www/js/WalletAssetsFormController.js"
+			],
+			[
+				"import",
+				"www/partials/import_armory_offline.html"
+			],
+			[
+				"add",
+				"www/js/add_address.js"
+			],
+			[
+				"wallet_send",
+				"www/partials/wallet_send_modal.html"
+			],
+			[
+				"walletas",
+				"www/js/WalletAssetsFormController.js"
+			],
+			[
+				"srvice",
+				"www/js/service.js"
+			],
+			[
+				"trans",
+				"www/js/TransactionGenerationController.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 267.0,
+	"status_bar_visible": true
+}

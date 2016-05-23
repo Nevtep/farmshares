@@ -171,5 +171,6 @@
 	"Your Info": "Your Info",
 	"Welcome": "Welcome",
 	"Soon we'll include basic analytics here so you can get a glance of what's going on.": "Soon we'll include basic analytics here so you can get a glance of what's going on.",
-	"Congratulations! You've got an order!": "Congratulations! You've got an order!"
+	"Congratulations! You've got an order!": "Congratulations! You've got an order!",
+	"There are no deliveries schedulled for this week": "There are no deliveries schedulled for this week"
 }

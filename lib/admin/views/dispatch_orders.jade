@@ -1,0 +1,11 @@
+extends layouts/admin
+
+append js
+  script(src="/javascripts/lib/require/require-jquery.js", data-main="/javascripts/app/admin/dispatchOrdersInit.js")
+  
+block inner  
+  .row-fluid
+  .row-fluid
+    h3= __("Orders")
+  .row-fluid(data-bind="with: dispatch")
+    include lists/orders

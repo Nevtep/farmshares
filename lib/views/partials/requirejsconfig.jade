@@ -70,6 +70,7 @@
 //- Dispatch
 - var wholesalesDispatchVM = CDN("/javascripts/viewmodels/dispatch/wholesalesVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var dispatchDeliveriesVM = CDN("/javascripts/viewmodels/dispatch/deliveriesVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
+- var dispatchOrdersVM = CDN("/javascripts/viewmodels/dispatch/ordersVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var deliveryScheduleDispatchVM = CDN("/javascripts/viewmodels/dispatch/deliveryScheduleVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 - var shareholdingsDispatchVM = CDN("/javascripts/viewmodels/dispatch/shareholdingsVM.js", { "raw" : true }).replace(/\.js\r*\n*$/, '').trim();
 //- Payments
@@ -154,6 +155,7 @@ script
       // Dispatch
       "wholesalesDispatchVM" : "#{wholesalesDispatchVM}",
       "dispatchDeliveriesVM" : "#{dispatchDeliveriesVM}",
+      "dispatchOrdersVM" : "#{dispatchOrdersVM}",
       "deliveryScheduleDispatchVM" : "#{deliveryScheduleDispatchVM}",
       "shareholdingsDispatchVM" : "#{shareholdingsDispatchVM}",
       // Payments
